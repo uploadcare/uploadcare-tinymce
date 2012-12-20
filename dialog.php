@@ -93,10 +93,7 @@ if ($_POST['insert'] or $_POST['_preview']) {
 	<script type="text/javascript" src="uploadcare.js"></script>
 </head>
 <body style="display: none" role="application" aria-labelledby="app_title">
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript">
-        google.load("jquery", "1.7");
-</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <?php if ($is_preview): ?>
 <?php echo $file->getImgTag($file->data['original_filename']); ?>
 <?php die();?>
