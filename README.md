@@ -38,9 +38,8 @@ Add a plugin and plugin button when initializing TinyMCE:
 
 1. Press "Uploadcare" button.
 2. Select a file to upload.
-3. Press "Store".
-4. Change any parameters you like.
-5. Press "Insert" and an image will be available inside editor.
+3. Change any parameters you like in the appeared dialog.
+4. Press "Insert" and an image will be available inside editor.
  
 [1]: http://uploadcare.com/
 [2]: https://uploadcare.com/documentation/reference/basic/cdn.html
