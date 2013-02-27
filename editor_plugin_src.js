@@ -1,7 +1,7 @@
 (function() {
     var _uc_window;
     var _file_id;
-    tinymce.ScriptLoader.load('https://ucarecdn.com/widget/0.5.0/uploadcare/uploadcare-0.5.0.min.js');
+    tinymce.ScriptLoader.load('https://ucarecdn.com/widget/0.6.3/uploadcare/uploadcare-0.6.3.min.js');
     tinymce.ScriptLoader.load('https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
     tinymce.create('tinymce.plugins.UploadcarePlugin', {
         init : function(ed, url) {
