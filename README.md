@@ -7,20 +7,12 @@ It's based on a [uploadcare-php][3] library.
 ## Requirements
 
 - TinyMCE 3.5+
-- PHP 5.2+
-- php-curl
 
 ## Install
 
 Clone plugin from git to your plugins directory:
 
     git clone git://github.com/uploadcare/uploadcare-tinymce.git plugins/uploadcare --recursive
-
-Find a "config.php" file inside plugin directory and edit it:
-
-    <?php
-    define('UC_PUBLIC_KEY', 'demopublickey');
-    define('UC_SECRET_KEY', 'demoprivatekey');
 
 Find a "config.js" file an edit it:
 
@@ -34,6 +26,8 @@ Add a plugin and plugin button when initializing TinyMCE:
       ....
       theme_advanced_buttons1 : "uploadcare,save,..."
       ....
+
+Enable autostore for you account.
 
 ## Usage
 
