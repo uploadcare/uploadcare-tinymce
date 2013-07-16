@@ -1,8 +1,10 @@
+UPLOADCARE_CROP = true;
+UPLOADCARE_AUTOSTORE = true;
 (function() {
     var _uc_window;
     var _file_id;
-    tinymce.ScriptLoader.load('https://ucarecdn.com/widget/0.5.0/uploadcare/uploadcare-0.5.0.min.js');
-    tinymce.ScriptLoader.load('https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
+    tinymce.ScriptLoader.add('https://ucarecdn.com/widget/0.9/uploadcare/uploadcare-0.9.min.js');
+    
     tinymce.create('tinymce.plugins.UploadcarePlugin', {
         init : function(ed, url) {
             tinymce.ScriptLoader.add(url + '/config.js');
@@ -29,17 +31,16 @@
             });
 
             ed.addCommand('showUploadcareDialog',function() {   
-                jQuery('span.mce_uploadcare').html('');
-                var uploader = new uploadcare.uploader.Uploader();
-                var circle = new uploadcare.ui.progress.Circle('span.mce_uploadcare');
-                uploadcare.widget.showDialog().pipe(function(file) {
-                    var upload = uploader.upload(file);
-                    circle.listen(upload);
-                    return upload;
-                }).fail(function(error) {
-                }).done(function(file) {
-                    _file_id = file.fileId;
-                    ed.execCommand('mceUploadcare', true);
+                var dialog = uploadcare.openDialog().done(function(file) {
+                    file.done(function(fileInfo) {
+                        _file_id = fileInfo.uuid;
+                        url = fileInfo.cdnUrl;
+                        if (fileInfo.isImage) {
+                            ed.execCommand('mceInsertContent', false, '<img src="'+url+'" />');
+                        } else {
+                            ed.execCommand('mceInsertContent', false, '<a href="'+url+'">'+fileInfo.name+'</a>');
+                        }
+                    });
                 });
             });
         },
@@ -54,7 +55,7 @@
                 author : 'Uploadcare',
                 authorurl : 'https://uploadcare.com/',
                 infourl : 'https://github.com/uploadcare/uploadcare-tinymce',
-                version : "1.0"
+                version : "1.1"
             };
         }
     });
