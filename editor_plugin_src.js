@@ -3,7 +3,7 @@ UPLOADCARE_AUTOSTORE = true;
 (function() {
     var _uc_window;
     var _file_id;
-    tinymce.ScriptLoader.add('https://ucarecdn.com/widget/0.9/uploadcare/uploadcare-0.9.min.js');
+    tinymce.ScriptLoader.add('https://ucarecdn.com/widget/0.11.2/uploadcare/uploadcare-0.11.2.min.js');
     
     tinymce.create('tinymce.plugins.UploadcarePlugin', {
         init : function(ed, url) {
