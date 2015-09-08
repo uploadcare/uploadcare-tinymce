@@ -6,7 +6,7 @@ It's based on a [uploadcare-php][3] library.
 
 ## Requirements
 
-- TinyMCE 3.5+
+- TinyMCE 4+
 
 ## Install
 
@@ -18,13 +18,13 @@ Find a "config.js" file an edit it:
 
     var UPLOADCARE_PUBLIC_KEY = "demopublickey";
 
-Add a plugin and plugin button when initializing TinyMCE:
+Add the plugin and plugin button when initializing TinyMCE:
 
     tinyMCE.init({
       ....
       plugins : "uploadcare,..."
       ....
-      theme_advanced_buttons1 : "uploadcare,save,..."
+      toolbar : "... | link image uploadcare"
       ....
 
 Enable autostore for you account.

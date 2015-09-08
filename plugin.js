@@ -1,9 +1,9 @@
-UPLOADCARE_CROP = true;
+UPLOADCARE_CROP = '';
 UPLOADCARE_AUTOSTORE = true;
 (function() {
     var _uc_window;
     var _file_id;
-    tinymce.ScriptLoader.add('https://ucarecdn.com/widget/0.11.2/uploadcare/uploadcare-0.11.2.min.js');
+    tinymce.ScriptLoader.add('https://ucarecdn.com/widget/2.5.1/uploadcare/uploadcare.full.min.js');
     
     tinymce.create('tinymce.plugins.UploadcarePlugin', {
         init : function(ed, url) {
@@ -23,11 +23,8 @@ UPLOADCARE_AUTOSTORE = true;
             ed.addButton('uploadcare', {
                 title : 'Uploadcare',
                 cmd : 'showUploadcareDialog',
-                image : url + '/logo.png'
-            });
-
-            ed.onNodeChange.add(function(ed, cm, n) {
-                cm.setActive('uploadcare', n.nodeName == 'IMG');
+                image : url + '/logo.png',
+                stateSelector : 'img'
             });
 
             ed.addCommand('showUploadcareDialog',function() {   
