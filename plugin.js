@@ -1,10 +1,11 @@
-UPLOADCARE_CROP = '';
-UPLOADCARE_AUTOSTORE = true;
+if (typeof UPLOADCARE_CROP == 'undefined') {
+    UPLOADCARE_CROP = '';
+}
 (function() {
     var _uc_window;
     var _file_id;
     tinymce.ScriptLoader.add('https://ucarecdn.com/widget/2.5.1/uploadcare/uploadcare.full.min.js');
-    
+
     tinymce.create('tinymce.plugins.UploadcarePlugin', {
         init : function(ed, url) {
             tinymce.ScriptLoader.add(url + '/config.js');
