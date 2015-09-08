@@ -38,6 +38,6 @@ Enable autostore option for you Uploadcare account.
 3. Change any parameters you like in the appeared dialog.
 4. Press "Insert" and an image will be available inside editor.
  
-[1]: http://uploadcare.com/
+[1]: https://uploadcare.com/
 [2]: http://www.tinymce.com/
 [3]: https://uploadcare.com/documentation/widget/#crop

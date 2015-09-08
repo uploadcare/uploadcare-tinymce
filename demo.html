@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+<script src="plugin.js"></script>
+<script>
+var UPLOADCARE_PUBLIC_KEY = 'demopublickey';
+tinymce.init({
+    selector:'textarea',
+    plugins: 'uploadcare',
+    toolbar: 'uploadcare'
+});
+</script>
+</head>
+<body>
+    <textarea>Happy uploading!</textarea>
+</body>
+</html>

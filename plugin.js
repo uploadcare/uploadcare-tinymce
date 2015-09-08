@@ -2,7 +2,6 @@ if (typeof UPLOADCARE_CROP == 'undefined') {
     UPLOADCARE_CROP = '';
 }
 (function() {
-    var _file_id;
     tinymce.ScriptLoader.add('https://ucarecdn.com/widget/2.5.1/uploadcare/uploadcare.full.min.js');
 
     tinymce.create('tinymce.plugins.UploadcarePlugin', {
@@ -20,12 +19,10 @@ if (typeof UPLOADCARE_CROP == 'undefined') {
             ed.addCommand('showUploadcareDialog',function() {   
                 var dialog = uploadcare.openDialog().done(function(file) {
                     file.done(function(fileInfo) {
-                        _file_id = fileInfo.uuid;
-                        url = fileInfo.cdnUrl;
                         if (fileInfo.isImage) {
-                            ed.execCommand('mceInsertContent', false, '<img src="'+url+'" />');
+                            ed.execCommand('mceInsertContent', false, '<img src="' + fileInfo.cdnUrl + '" />');
                         } else {
-                            ed.execCommand('mceInsertContent', false, '<a href="'+url+'">'+fileInfo.name+'</a>');
+                            ed.execCommand('mceInsertContent', false, '<a href="' + fileInfo.cdnUrl + '">' + fileInfo.name + '</a>');
                         }
                     });
                 });
@@ -42,7 +39,7 @@ if (typeof UPLOADCARE_CROP == 'undefined') {
                 author : 'Uploadcare',
                 authorurl : 'https://uploadcare.com/',
                 infourl : 'https://github.com/uploadcare/uploadcare-tinymce',
-                version : "1.1"
+                version : "2.0.0"
             };
         }
     });
