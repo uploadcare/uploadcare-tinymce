@@ -2,7 +2,6 @@ if (typeof UPLOADCARE_CROP == 'undefined') {
     UPLOADCARE_CROP = '';
 }
 (function() {
-    var _uc_window;
     var _file_id;
     tinymce.ScriptLoader.add('https://ucarecdn.com/widget/2.5.1/uploadcare/uploadcare.full.min.js');
 
@@ -10,16 +9,6 @@ if (typeof UPLOADCARE_CROP == 'undefined') {
         init : function(ed, url) {
             tinymce.ScriptLoader.add(url + '/config.js');
             tinymce.ScriptLoader.loadQueue();
-            ed.addCommand('mceUploadcare', function() {
-                _uc_window = ed.windowManager.open({
-                    file : url + '/dialog.php?file_id=' + _file_id,
-                    width : 800,
-                    height : 600,
-                    inline : 1
-                }, {
-                    plugin_url : url
-                });
-            });
 
             ed.addButton('uploadcare', {
                 title : 'Uploadcare',
