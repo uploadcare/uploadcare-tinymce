@@ -75,7 +75,7 @@ The widget can upload files from disk, URLs, and many social sites.
 Each upload source has its own tab in the widget dialog.
 
 A full list of tabs supported in the latest widget version
-(2.5.1) is provided below.
+(2.10.2) is provided below.
 
 <table class="reference">
   <tr>
@@ -106,6 +106,11 @@ A full list of tabs supported in the latest widget version
   <tr>
     <td><code>gdrive</code></td>
     <td><a href="https://drive.google.com/">Google Drive</a></td>
+    <th>On</th>
+  </tr>
+  <tr>
+    <td><code>gphotos</code></td>
+    <td><a href="https://photos.google.com/">Google Photos</a></td>
     <th>On</th>
   </tr>
   <tr>
@@ -141,6 +146,11 @@ A full list of tabs supported in the latest widget version
   <tr>
     <td><code>vk</code></td>
     <td><a href="http://vk.com/">VK</a></td>
+    <th>Off</th>
+  </tr>
+  <tr>
+    <td><code>huddle</code></td>
+    <td><a href="https://www.huddle.com/">Huddle</a></td>
     <th>Off</th>
   </tr>
 </table>
