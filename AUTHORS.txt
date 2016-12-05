@@ -1,0 +1,7 @@
+# git log --format='%aN <%aE>' | sort -u
+
+Dmitry Mukhin <dm@uploadcare.com>
+Dmitry Petrov <dimaninc@gmail.com>
+Elijah <ilya@uploadcare.com>
+Gray Hound <admin@devilmaydie.name>
+Zarema Khalilova <zarema@uploadcare.com>
