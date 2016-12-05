@@ -1,18 +1,23 @@
 # Uploadcare TinyMCE Plugin
 
-This is [Uploadcare][1] plugin for [TinyMCE][2] text editor. It will allow your users to upload files and images from local device, social networks, cloud storages without any backend code that is usually required to handle uploads.
+That's the [Uploadcare][1] plugin for the [TinyMCE][2] WYSIWYG HTML editor.
+The plugin allows your users to upload files and images
+from local devices, social networks, cloud storages, and more.
+All that — without any backend code that is often required for uploads.
 
 # Requirements
 
-- TinyMCE 4+
+* TinyMCE 4+
 
-# Install
+# Installation
 
-Clone plugin from git to your plugins directory:
+Installing the Uploadcare plugin is done via cloning
+the repo to your plugins directory with git:
 
     git clone git://github.com/uploadcare/uploadcare-tinymce.git plugins/uploadcare
 
-Add the plugin and its button while initializing TinyMCE:
+Next step is adding the plugin and its button
+while initializing TinyMCE:
 
     tinymce.init({
       ....
@@ -20,25 +25,40 @@ Add the plugin and its button while initializing TinyMCE:
       ....
       toolbar : "... | link image uploadcare"
       ....
+# Usage
 
+Uploading files and images with the plugin
+will take you about three steps:
+
+1. Click the "Uploadcare" button.
+2. Select a file to upload.
+3. Either an image or a file link will appear in the editor.
+
+We split the concepts of files and images here.
+That's because images can be transformed on-the-fly
+with our [CDN](https://uploadcare.com/documentation/cdn/).
+Technically, the plugin lets your TinyMCE editor to
+ineract with [Uploadcare Widget](https://uploadcare.com/documentation/widget/).
 
 # Configuration
 
-Find "config.js" file and add your settings there.
+All the settings are managed within the "config.js" file.
 
-### Required setting
-
-There is only one - your public API key. You can get that by creating an
-account [Uploadcare][1]. You can use demo public key during dev stage, but note that
-demo account files are removed every few hours.
+There's only one **critical** setting — your
+Uploadcare public API key. It can be easily obtained
+once you're [registered](https://uploadcare.com/documentation/)
+with Uploadcare and have at least a single project
+created on your [dashboard](https://uploadcare.com/dashboard/).
+You can still use the demo public key during the dev stage.
+Keep in mind that demo account files are removed every few hours.
 
     var UPLOADCARE_PUBLIC_KEY = "demopublickey";
 
-
 ## Useful settings
 
-### Locale.
-Set widget locale. Should be set as global variable:
+### Locale
+Use this setting to define a widget locale.
+Should be set as a global variable:
 
 ```html
 <script>
@@ -46,22 +66,34 @@ Set widget locale. Should be set as global variable:
 </script>
 ```
 
-### Crop.
-You can enable custom crop in the widget. After a user selects a file she will
-be able to crop it, according to your settings. Original file will be uploaded
-to your project, but additional crop operations will be included in resulting
-image URL.
+### Crop
+This setting is applicable to images and
+enables custom crop for the plugin.
+Cropping will then become available after a user
+selects a file for upload.
+Please note that the file uploaded to your project
+still is an original image. Crop operations are performed
+on-the-fly with our 
+[CDN API](https://uploadcare.com/documentation/cdn/)
+and hence are included in a resulting image URL.
 
-Crop options is a string with one or more crop presets. Presets are divided by
-commas. When more than one preset is defined, user can pick any of them on crop
-step. Each preset consists of a size definition and optional keyword.
+Crop options are set in a string holding one or more
+crop presets. Those are divided by commas.
+If there are multiple crop presets present in an options
+string, users will then be able to choose which of
+them to apply during the crop step.
+Each preset consists of a size definition and an optional keyword.
 
-- "disabled" — crop is disabled. Can't be combined with other presets;
-- "" or "free" — crop enabled and the user will be able to select any area on an image;
-- "2:3" — user will be able to select an area with aspect ratio 2:3;
-- "300x200" — same as previous, but if the selected area is bigger than 300x200, it will be scaled down to these dimensions;
-- "300x200 upscale" — same as previous, but the selected area will be scaled even if it is smaller than the specified size;
-- "300x200 minimum" — user will not be able to select an area smaller than 300x200. If uploaded image is smaller than 300x200 itself, it will be upscaled.
+- "disabled" — crop is disabled. Can't be combined with other presets.
+- "" or "free" — crop is enabled and users will be able to
+  define crop area freely on an image.
+- "2:3" — enables crop with the 2:3 aspect ratio.
+- "300x200" — same as above, but if the selected area is bigger than 300x200 px,
+  it will be downscaled to fit these dimensions.
+- "300x200 upscale" — same as above, but if the selected area is smaller than
+  300x200 px, it will be upscaled to the specified size.
+- "300x200 minimum" — users won't be able to select an area smaller than 300x200 px.
+  If an uploaded image is smaller than that, it will be upscaled.
 
 ```html
 <script type="text/javascript">
@@ -70,12 +102,12 @@ step. Each preset consists of a size definition and optional keyword.
 ```
 
 ### Tabs (Upload Sources)
+The widget can upload files from disks, URLs, social media,
+and many other sources. There's a separate tab for each
+upload source in the sidget.
 
-The widget can upload files from disk, URLs, and many social sites.
-Each upload source has its own tab in the widget dialog.
-
-A full list of tabs supported in the latest widget version
-(2.10.2) is provided below.
+Here's the full list of tabs (sources) supported by
+the latest widget version (2.10.2).
 
 <table class="reference">
   <tr>
@@ -155,10 +187,10 @@ A full list of tabs supported in the latest widget version
   </tr>
 </table>
 
-The set can be reconfigured by
-specifying the ones you need in a space-separated value.
-Special value `all` can be used to enable all supported sources.
-
+The set of enabled sources can be reconfigured.
+This is done through specifying their respective 
+codes in an options string, as space-separated values.
+Use the `all` value to enable all supported sources.
 
 ```html
 <script type="text/javascript">
@@ -166,18 +198,25 @@ Special value `all` can be used to enable all supported sources.
 </script>
 ```
 
-
 ## Other settings
 
-All Uploadcare widget settings are too numerous to be listed here, please read
-Uploadcare [widget documentation][4] to unleash full uploading power.
+All the Uploadcare Widget settings can be found in our [docs][4].
+Please read those to unleash the uploading power in its full.
 
+# Contributors
 
-# Usage
+* [@grayhound](https://github.com/grayhound)
+* [@dmitry-mukhin](https://github.com/dmitry-mukhin)
+* [@dimaninc](https://github.com/dimaninc)
+* [@Zmoki](https://github.com/Zmoki)
 
-1. Press "Uploadcare" button.
-2. Select a file to upload.
-3. An image or a file link will appear in editor
+Current maintainers are: [@Zmoki](https://github.com/Zmoki),
+[@dmitry-mukhin](https://github.com/dmitry-mukhin).
+
+# Contact
+
+Got any thoughts to share? Hit us up at
+[hello@uploadcare.com](mailto:hello@uploadcare.com).
 
 [1]: https://uploadcare.com/
 [2]: http://www.tinymce.com/
