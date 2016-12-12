@@ -210,9 +210,6 @@ Please read those to unleash the uploading power in its full.
 * [@dimaninc](https://github.com/dimaninc)
 * [@Zmoki](https://github.com/Zmoki)
 
-Current maintainers are: [@Zmoki](https://github.com/Zmoki),
-[@dmitry-mukhin](https://github.com/dmitry-mukhin).
-
 # Contact
 
 Got any thoughts to share? Hit us up at
