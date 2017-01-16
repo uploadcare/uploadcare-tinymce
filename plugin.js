@@ -39,7 +39,7 @@ if (typeof UPLOADCARE_CROP == 'undefined') {
                 author : 'Uploadcare',
                 authorurl : 'https://uploadcare.com/',
                 infourl : 'https://github.com/uploadcare/uploadcare-tinymce',
-                version : "2.1.0"
+                version : "2.1.1"
             };
         }
     });
