@@ -2,7 +2,7 @@ if (typeof UPLOADCARE_CROP == 'undefined') {
     UPLOADCARE_CROP = '';
 }
 (function() {
-    tinymce.ScriptLoader.add('https://ucarecdn.com/widget/2.10.2/uploadcare/uploadcare.full.min.js');
+    tinymce.ScriptLoader.add('https://ucarecdn.com/widget/2.x/uploadcare/uploadcare.full.min.js');
 
     tinymce.create('tinymce.plugins.UploadcarePlugin', {
         init : function(ed, url) {
