@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.1
+
+- update CDN link to the widget
+
 ## 2.1.0
 
 - bump widget version to 2.10.2 (see [widget changelog][widget changelog])

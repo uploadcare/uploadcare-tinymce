@@ -107,7 +107,7 @@ and many other sources. There's a separate tab for each
 upload source in the sidget.
 
 Here's the full list of tabs (sources) supported by
-the latest widget version (2.10.2).
+the latest widget version.
 
 <table class="reference">
   <tr>
