@@ -104,7 +104,7 @@ Each preset consists of a size definition and an optional keyword.
 ### Tabs (Upload Sources)
 The widget can upload files from disks, URLs, social media,
 and many other sources. There's a separate tab for each
-upload source in the sidget.
+upload source in the widget.
 
 Here's the full list of tabs (sources) supported by
 the latest widget version.
