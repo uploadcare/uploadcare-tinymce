@@ -2,9 +2,9 @@ if (typeof window.UPLOADCARE_CROP === 'undefined') {
   window.UPLOADCARE_CROP = ''
 }
 
-var widgetVersion = '$_WIDGET_VERSION'
+var widgetConfig = {integration: getIntegration()}
 
-tinymce.ScriptLoader.add('https://ucarecdn.com/widget/' + widgetVersion + '/uploadcare/uploadcare.full.min.js')
+tinymce.ScriptLoader.add('https://ucarecdn.com/widget/' + '$_WIDGET_VERSION' + '/uploadcare/uploadcare.full.min.js')
 
 tinymce.create('tinymce.plugins.UploadcarePlugin', {
   init: function(ed, url) {
@@ -19,7 +19,7 @@ tinymce.create('tinymce.plugins.UploadcarePlugin', {
     })
 
     ed.addCommand('showUploadcareDialog', function() {
-      uploadcare.openDialog().done(function(file) {
+      uploadcare.openDialog(null, widgetConfig).done(function(file) {
         file.done(function(fileInfo) {
           if (fileInfo.isImage) {
             ed.execCommand('mceInsertContent', false, '<img src="' + fileInfo.cdnUrl + '" />')
@@ -48,3 +48,14 @@ tinymce.create('tinymce.plugins.UploadcarePlugin', {
 })
 
 tinymce.PluginManager.add('uploadcare', tinymce.plugins.UploadcarePlugin)
+
+function getIntegration() {
+  var tinymceVersion = tinyMCE.majorVersion + '.' + tinyMCE.minorVersion
+  var pluginVerion = '$_VERSION'
+
+  var integration = 'TinyMCE/{tinymceVersion}; Uploadcare-TinyMCE/{pluginVerion}'
+    .replace('{tinymceVersion}', tinymceVersion)
+    .replace('{pluginVerion}', pluginVerion)
+
+  return integration
+}
