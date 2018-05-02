@@ -1,4 +1,4 @@
-if (typeof window.UPLOADCARE_CROP == 'undefined') {
+if (typeof window.UPLOADCARE_CROP === 'undefined') {
   window.UPLOADCARE_CROP = ''
 }
 
