@@ -1,20 +1,32 @@
 # Uploadcare TinyMCE Plugin
 
-That's the [Uploadcare][1] plugin for the [TinyMCE][2] WYSIWYG HTML editor.
+<a href="https://uploadcare.com/?utm_source=github&utm_campaign=uploadcare-ckeditor">
+    <img align="right" width="64" height="64"
+         src="https://ucarecdn.com/2f4864b7-ed0e-4411-965b-8148623aa680/uploadcare-logo-mark.svg"
+         alt="">
+</a>
+
+That's the [Uploadcare][uploadcare] plugin for the [TinyMCE][tinymce] WYSIWYG HTML editor.
 The plugin allows your users to upload files and images
 from local devices, social networks, cloud storages, and more.
 All that — without any backend code that is often required for uploads.
+
+[![GitHub release][badge-release-img]][badge-release-url]&nbsp;
+[![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
 
 # Requirements
 
 * TinyMCE 4+
 
+# Demo
+A minimalistic demo can be found [here][demo].
+
 # Installation
 
 Installing the Uploadcare plugin is done via cloning
-the repo to your plugins directory with git:
+the release branch to your plugins directory with git:
 
-    git clone git://github.com/uploadcare/uploadcare-tinymce.git plugins/uploadcare
+    git clone -b release git@github.com:uploadcare/uploadcare-tinymce.git plugins/uploadcare
 
 Next step is adding the plugin and its button
 while initializing TinyMCE:
@@ -200,7 +212,7 @@ Use the `all` value to enable all supported sources.
 
 ## Other settings
 
-All the Uploadcare Widget settings can be found in our [docs][4].
+All the Uploadcare Widget settings can be found in our [docs][widget-conf].
 Please read those to unleash the uploading power in its full.
 
 # Contributors
@@ -215,7 +227,12 @@ Please read those to unleash the uploading power in its full.
 Got any thoughts to share? Hit us up at
 [hello@uploadcare.com](mailto:hello@uploadcare.com).
 
-[1]: https://uploadcare.com/
-[2]: http://www.tinymce.com/
-[3]: https://uploadcare.com/documentation/widget/#crop
-[4]: https://uploadcare.com/documentation/widget/#configuration
+[uploadcare]: https://uploadcare.com/
+[tinymce]: http://www.tinymce.com/
+[widget-crop]: https://uploadcare.com/docs/uploads/widget/#crop
+[widget-conf]: https://uploadcare.com/docs/uploads/widget/#configuration
+[demo]: http://uploadcare.github.io/uploadcare-tinymce/
+[badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
+[badge-stack-url]: https://stackshare.io/uploadcare/stacks/
+[badge-release-img]: https://img.shields.io/github/release/uploadcare/uploadcare-tinymce.svg
+[badge-release-url]: https://github.com/uploadcare/uploadcare-tinymce/releases
