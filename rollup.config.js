@@ -6,6 +6,7 @@ import pkg from './package.json'
 import uglify from 'rollup-plugin-uglify'
 
 const isWatching = process.argv.includes('-w') || process.argv.includes('--watch')
+const browsersyncPlugin = isWatching && browsersync()
 
 const getPlugins = ({minify = false} = {}) => [
   cp({
@@ -21,7 +22,7 @@ const getPlugins = ({minify = false} = {}) => [
     `,
   }),
   jscc({values: {_WIDGET_VERSION: pkg.widgetVersion}}),
-  isWatching && browsersync(),
+  browsersyncPlugin,
   minify && uglify(),
 ]
 
