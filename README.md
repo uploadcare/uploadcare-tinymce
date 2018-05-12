@@ -1,9 +1,15 @@
 # Uploadcare TinyMCE Plugin
 
-<a href="https://uploadcare.com/?utm_source=github&utm_campaign=uploadcare-ckeditor">
-    <img align="right" width="64" height="64"
-         src="https://ucarecdn.com/2f4864b7-ed0e-4411-965b-8148623aa680/uploadcare-logo-mark.svg"
-         alt="">
+<a href="https://www.tinymce.com/">
+  <img align="right" width="77" height="70"
+    src="https://www.tinymce.com/images/glyph-tinymce@2x.png"
+    alt="">
+</a>
+
+<a href="https://uploadcare.com/?utm_source=github&utm_campaign=uploadcare-tinymce">
+  <img align="right" width="64" height="64"
+    src="https://ucarecdn.com/2f4864b7-ed0e-4411-965b-8148623aa680/uploadcare-logo-mark.svg"
+    alt="">
 </a>
 
 That's the [Uploadcare][uploadcare] plugin for the [TinyMCE][tinymce] WYSIWYG HTML editor.
@@ -19,220 +25,64 @@ All that — without any backend code that is often required for uploads.
 * TinyMCE 4+
 
 # Demo
+
 A minimalistic demo can be found [here][demo].
 
-# Installation
+# Install
 
 Installing the Uploadcare plugin is done via cloning
 the release branch to your plugins directory with git:
 
-    git clone -b release git@github.com:uploadcare/uploadcare-tinymce.git plugins/uploadcare
+```bash
+git clone -b release git@github.com:uploadcare/uploadcare-tinymce.git plugins/uploadcare
+```
 
-Next step is adding the plugin and its button
-while initializing TinyMCE:
-
-    tinymce.init({
-      ....
-      plugins : ["uploadcare,..."],
-      ....
-      toolbar : "... | link image uploadcare"
-      ....
 # Usage
 
-Uploading files and images with the plugin
-will take you about three steps:
+Add the plugin and its button while initializing TinyMCE:
 
-1. Click the "Uploadcare" button.
-2. Select a file to upload.
-3. Either an image or a file link will appear in the editor.
-
-We split the concepts of files and images here.
-That's because images can be transformed on-the-fly
-with our [CDN](https://uploadcare.com/documentation/cdn/).
-Technically, the plugin lets your TinyMCE editor to
-ineract with [Uploadcare Widget](https://uploadcare.com/documentation/widget/).
+```javascript
+tinymce.init({
+  selector: "#editor",
+  plugins: "uploadcare",
+  toolbar: "uploadcare",
+  external_plugins: {
+    uploadcare: "/path/to/uploadcare/plugin.js"
+  }
+});
+```
 
 # Configuration
 
-All the settings are managed within the "config.js" file.
+All the settings are managed within the `config.js` file.
 
 There's only one **critical** setting — your
-Uploadcare public API key. It can be easily obtained
-once you're [registered](https://uploadcare.com/documentation/)
-with Uploadcare and have at least a single project
-created on your [dashboard](https://uploadcare.com/dashboard/).
+Uploadcare [public API key][widget-docs-keys]. It can be easily obtained at your [dashboard].
 You can still use the demo public key during the dev stage.
 Keep in mind that demo account files are removed every few hours.
 
-    var UPLOADCARE_PUBLIC_KEY = "demopublickey";
-
-## Useful settings
-
-### Locale
-Use this setting to define a widget locale.
-Should be set as a global variable:
-
-```html
-<script>
-    UPLOADCARE_LOCALE = 'es';
-</script>
+```
+UPLOADCARE_PUBLIC_KEY = 'demopublickey'
 ```
 
-### Crop
-This setting is applicable to images and
-enables custom crop for the plugin.
-Cropping will then become available after a user
-selects a file for upload.
-Please note that the file uploaded to your project
-still is an original image. Crop operations are performed
-on-the-fly with our 
-[CDN API](https://uploadcare.com/documentation/cdn/)
-and hence are included in a resulting image URL.
+You can deeply customize the widget behavior:
+file sources, file validation, and much more.
+Please, check out the [Uploadcare Widget][widget-docs-config]
+and [JavaScript API][widget-docs-js-api] docs.
 
-Crop options are set in a string holding one or more
-crop presets. Those are divided by commas.
-If there are multiple crop presets present in an options
-string, users will then be able to choose which of
-them to apply during the crop step.
-Each preset consists of a size definition and an optional keyword.
+## Feedback
 
-- "disabled" — crop is disabled. Can't be combined with other presets.
-- "" or "free" — crop is enabled and users will be able to
-  define crop area freely on an image.
-- "2:3" — enables crop with the 2:3 aspect ratio.
-- "300x200" — same as above, but if the selected area is bigger than 300x200 px,
-  it will be downscaled to fit these dimensions.
-- "300x200 upscale" — same as above, but if the selected area is smaller than
-  300x200 px, it will be upscaled to the specified size.
-- "300x200 minimum" — users won't be able to select an area smaller than 300x200 px.
-  If an uploaded image is smaller than that, it will be upscaled.
+Your feedback or support requests are welcome at [hello@uploadcare.com][uc-email-hello].
 
-```html
-<script type="text/javascript">
-  UPLOADCARE_CROP = '4:3, 3:4';
-</script>
-```
-
-### Tabs (Upload Sources)
-The widget can upload files from disks, URLs, social media,
-and many other sources. There's a separate tab for each
-upload source in the widget.
-
-Here's the full list of tabs (sources) supported by
-the latest widget version.
-
-<table class="reference">
-  <tr>
-    <th>Code</th>
-    <th>File Source</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><code>file</code></td>
-    <td>Local disk</td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>camera</code></td>
-    <td>Local webcam</td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>url</code></td>
-    <td>Any URL</td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>facebook</code></td>
-    <td><a href="https://www.facebook.com/">Facebook</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>gdrive</code></td>
-    <td><a href="https://drive.google.com/">Google Drive</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>gphotos</code></td>
-    <td><a href="https://photos.google.com/">Google Photos</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>dropbox</code></td>
-    <td><a href="https://www.dropbox.com/">Dropbox</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>instagram</code></td>
-    <td><a href="http://instagram.com/">Instagram</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>evernote</code></td>
-    <td><a href="http://evernote.com/">Evernote</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>flickr</code></td>
-    <td><a href="https://www.flickr.com/">Flickr</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>skydrive</code></td>
-    <td><a href="https://onedrive.live.com/">OneDrive</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>box</code></td>
-    <td><a href="https://www.box.com/">Box</a></td>
-    <th>Off</th>
-  </tr>
-  <tr>
-    <td><code>vk</code></td>
-    <td><a href="http://vk.com/">VK</a></td>
-    <th>Off</th>
-  </tr>
-  <tr>
-    <td><code>huddle</code></td>
-    <td><a href="https://www.huddle.com/">Huddle</a></td>
-    <th>Off</th>
-  </tr>
-</table>
-
-The set of enabled sources can be reconfigured.
-This is done through specifying their respective 
-codes in an options string, as space-separated values.
-Use the `all` value to enable all supported sources.
-
-```html
-<script type="text/javascript">
-  UPLOADCARE_TABS = 'file url instagram flickr';
-</script>
-```
-
-## Other settings
-
-All the Uploadcare Widget settings can be found in our [docs][widget-conf].
-Please read those to unleash the uploading power in its full.
-
-# Contributors
-
-* [@grayhound](https://github.com/grayhound)
-* [@dmitry-mukhin](https://github.com/dmitry-mukhin)
-* [@dimaninc](https://github.com/dimaninc)
-* [@Zmoki](https://github.com/Zmoki)
-
-# Contact
-
-Got any thoughts to share? Hit us up at
-[hello@uploadcare.com](mailto:hello@uploadcare.com).
-
+[uc-email-hello]: mailto:hello@uploadcare.com
+[widget-docs-config]: https://uploadcare.com/docs/uploads/widget/config/
+[widget-docs-js-api]: https://uploadcare.com/docs/api_reference/javascript/
+[widget-docs-keys]: https://uploadcare.com/docs/keys/#keys
 [uploadcare]: https://uploadcare.com/
 [tinymce]: http://www.tinymce.com/
-[widget-crop]: https://uploadcare.com/docs/uploads/widget/#crop
-[widget-conf]: https://uploadcare.com/docs/uploads/widget/#configuration
 [demo]: http://uploadcare.github.io/uploadcare-tinymce/
 [badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
 [badge-release-img]: https://img.shields.io/github/release/uploadcare/uploadcare-tinymce.svg
 [badge-release-url]: https://github.com/uploadcare/uploadcare-tinymce/releases
+[dashboard]: https://uploadcare.com/dashboard/
