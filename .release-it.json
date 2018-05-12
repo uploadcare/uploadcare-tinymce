@@ -7,7 +7,7 @@
   "github": {
     "release": true,
     "draft": true,
-    "assets": "dist/uploadcare.tinymce/*.*"
+    "assets": "dist/*.*"
   },
   "npm": {
     "publish": false
