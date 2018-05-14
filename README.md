@@ -1,11 +1,5 @@
 # Uploadcare TinyMCE Plugin
 
-<a href="https://www.tinymce.com/">
-  <img align="right" width="77" height="70"
-    src="https://www.tinymce.com/images/glyph-tinymce@2x.png"
-    alt="">
-</a>
-
 <a href="https://uploadcare.com/?utm_source=github&utm_campaign=uploadcare-tinymce">
   <img align="right" width="64" height="64"
     src="https://ucarecdn.com/2f4864b7-ed0e-4411-965b-8148623aa680/uploadcare-logo-mark.svg"
