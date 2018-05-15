@@ -16,6 +16,16 @@ All that — without any backend code that is often required for uploads.
 [![GitHub release][badge-release-img]][badge-release-url]&nbsp;
 [![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
 
+* [Demo](#demo)
+* [Requirements](#requirements)
+* [Install](#install)
+* [Usage](#usage)
+* [Configuration](#configuration)
+  * [Widget configuration](#widget-configuration)
+* [Contributors](#contributors)
+* [Security issues](#security-issues)
+* [Feedback](#feedback)
+
 ## Demo
 
 Check out the basic demo [here][demo].
