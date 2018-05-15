@@ -2,7 +2,7 @@
   "name": "uploadcare-tinymce",
   "version": "2.1.1",
   "widgetVersion": "3.x",
-  "description": "This is Uploadcare plugin for TinyMCE text editor.",
+  "description": "File Uploader by Uploadcare. The plugin for TinyMCE to work with Uploadcare Widget.",
   "main": "uploadcare.tinymce.js",
   "scripts": {
     "dev": "rollup -c -w",
