@@ -1,4 +1,4 @@
-# Uploadcare TinyMCE Plugin
+# File Uploader by Uploadcare
 
 <a href="https://uploadcare.com/?utm_source=github&utm_campaign=uploadcare-tinymce">
   <img align="right" width="64" height="64"
@@ -6,7 +6,9 @@
     alt="">
 </a>
 
-That's the [Uploadcare][uploadcare] plugin for the [TinyMCE][tinymce] WYSIWYG HTML editor.
+This is a plugin for the [TinyMCE][tinymce] WYSIWYG HTML editor
+providing it to work with [Uploadcare Widget][uc-feature-widget].
+
 The plugin allows your users to upload files and images
 from local devices, social networks, cloud storages, and more.
 All that — without any backend code that is often required for uploads.
@@ -14,69 +16,96 @@ All that — without any backend code that is often required for uploads.
 [![GitHub release][badge-release-img]][badge-release-url]&nbsp;
 [![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
 
-# Requirements
+## Demo
 
-* TinyMCE 4+
+Check out the basic demo [here][demo].
 
-# Demo
+## Requirements
 
-A minimalistic demo can be found [here][demo].
+TinyMCE 4+.
 
-# Install
+## Install
 
-Installing the Uploadcare plugin is done via cloning
-the release branch to your plugins directory with git:
+Download the latest plugin archive from the [release branch][github-branch-release]
+or [releases page][github-releases].
+
+Extract the downloaded archive to the plugin directory of your TinyMCE
+installation.
+
+Other options here are either cloning the repo:
 
 ```bash
 git clone -b release git@github.com:uploadcare/uploadcare-tinymce.git plugins/uploadcare
 ```
 
-# Usage
+## Usage
 
-Add the plugin and its button while initializing TinyMCE:
+Add `uploadcare` to the list of your TinyMCE plugins and the toolbar.
+**Set your [public key][uc-docs-widget-options-public-key]**. Public keys are used
+to identify a target Uploadcare [project][uc-projects] your uploads will go to.
 
 ```javascript
+UPLOADCARE_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'
+
 tinymce.init({
-  selector: "#editor",
-  plugins: "uploadcare",
-  toolbar: "uploadcare",
+  selector: '#editor',
+  plugins: 'uploadcare',
+  toolbar: 'uploadcare',
   external_plugins: {
-    uploadcare: "/path/to/uploadcare/plugin.js"
-  }
-});
+    uploadcare: '/path/to/uploadcare/plugin.js',
+  },
+})
 ```
 
-# Configuration
+## Configuration
 
-All the settings are managed within the `config.js` file.
+### Widget configuration
 
-There's only one **critical** setting — your
-Uploadcare [public API key][widget-docs-keys]. It can be easily obtained at your [dashboard].
-You can still use the demo public key during the dev stage.
-Keep in mind that demo account files are removed every few hours.
+Uploadcare Widget can be deeply customized to suit your UX/UI. You can define
+allowed upload sources, implement file validation, and more.
 
-```
-UPLOADCARE_PUBLIC_KEY = 'demopublickey'
-```
+Use our live [widget sandbox][uc-widget-configure] as a starting point and consider
+checking out the docs on [widget configuration][uc-docs-widget-config] and its
+[JavaScript API][uc-docs-widget-js-api].
 
-You can deeply customize the widget behavior:
-file sources, file validation, and much more.
-Please, check out the [Uploadcare Widget][widget-docs-config]
-and [JavaScript API][widget-docs-js-api] docs.
+## Contributors
+
+Below are the top-3 folks based on the total number of contributions to the
+project. See the full list of contributors [here][github-contributors].
+
+* [grayhound](https://github.com/grayhound)
+* [Zmoki](https://github.com/Zmoki)
+* [nd0out](https://github.com/nd0out)
+
+## Security issues
+
+If you think you ran into something in Uploadcare libraries which might have
+security implications, please hit us up at [bugbounty@uploadcare.com][uc-email-bounty]
+or Hackerone.
+
+We'll contact you personally in a short time to fix an issue through co-op and
+prior to any public disclosure.
 
 ## Feedback
 
-Your feedback or support requests are welcome at [hello@uploadcare.com][uc-email-hello].
+Issues and PRs are welcome. You can provide your feedback or drop us a support
+request at [hello@uploadcare.com][uc-email-hello].
 
-[uc-email-hello]: mailto:hello@uploadcare.com
-[widget-docs-config]: https://uploadcare.com/docs/uploads/widget/config/
-[widget-docs-js-api]: https://uploadcare.com/docs/api_reference/javascript/
-[widget-docs-keys]: https://uploadcare.com/docs/keys/#keys
-[uploadcare]: https://uploadcare.com/
 [tinymce]: http://www.tinymce.com/
-[demo]: http://uploadcare.github.io/uploadcare-tinymce/
+[demo]: https://uploadcare.github.io/uploadcare-tinymce/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-docs-widget-config]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-docs-widget-js-api]: https://uploadcare.com/docs/api_reference/javascript/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-docs-widget-options-public-key]: https://uploadcare.com/docs/uploads/widget/config/#option-public-key?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-dashboard]: https://uploadcare.com/dashboard/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-widget-configure]: https://uploadcare.com/widget/configure/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-feature-widget]: https://uploadcare.com/features/widget/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-projects]: https://uploadcare.com/docs/keys/?utm_source=github&utm_campaign=uploadcare-tinymce#projects
+[uc-email-bounty]: mailto:bugbounty@uploadcare.com
+[uc-email-hello]: mailto:hello@uploadcare.com
+[github-releases]: https://github.com/uploadcare/uploadcare-tinymce/releases
+[github-branch-release]: https://github.com/uploadcare/uploadcare-tinymce/tree/release
+[github-contributors]: https://github.com/uploadcare/uploadcare-tinymce/graphs/contributors
 [badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
 [badge-release-img]: https://img.shields.io/github/release/uploadcare/uploadcare-tinymce.svg
 [badge-release-url]: https://github.com/uploadcare/uploadcare-tinymce/releases
-[dashboard]: https://uploadcare.com/dashboard/
