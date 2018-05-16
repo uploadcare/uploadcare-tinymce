@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-* Setting options for the plugin using options of the TinyMCE editor.
+* Plugin settings can now be defined using the TinyMCE editor options.
 
 ### Changed
 
-* Bumped the version of the widget to `3.x`, see [widget changelog][widget changelog].
+* Bumped the widget version to `3.x`, see [widget changelog][widget-changelog].
 * Added `integration` to the default config to provide info
   on the TinyMCE version and plugin version for User Agent with requests
   to [Uploadcare Upload API](https://uploadcare.com/docs/api_reference/upload/).
@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-* Bumped widget version to `2.10.2`, see [widget changelog][widget changelog].
+* Bumped widget version to `2.10.2`, see [widget changelog][widget-changelog].
 
 ## 2.0.0, 2015-09-08
 
@@ -40,6 +40,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Updated plugin to work with TinyMCE 4+.
 * Get rid of PHP dialog.
-* Bumped widget version to 2.5.1, see [widget changelog][widget changelog].
+* Bumped widget version to 2.5.1, see [widget changelog][widget-changelog].
 
-[widget changelog]: https://github.com/uploadcare/uploadcare-widget/blob/master/HISTORY.markdown
+[widget-changelog]: https://github.com/uploadcare/uploadcare-widget/blob/master/HISTORY.markdown
