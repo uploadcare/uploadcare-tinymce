@@ -132,7 +132,7 @@ request at [hello@uploadcare.com][uc-email-hello].
 [uc-docs-widget-config]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-js-api]: https://uploadcare.com/docs/api_reference/javascript/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-options]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce#options
-[uc-docs-widget-options-public-key]: https://uploadcare.com/docs/uploads/widget/config/#option-public-key?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-docs-widget-options-public-key]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce#option-public-key
 [uc-dashboard]: https://uploadcare.com/dashboard/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-widget-configure]: https://uploadcare.com/widget/configure/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-feature-widget]: https://uploadcare.com/features/widget/?utm_source=github&utm_campaign=uploadcare-tinymce
