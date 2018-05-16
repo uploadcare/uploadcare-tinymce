@@ -6,6 +6,7 @@
   "main": "uploadcare.tinymce.js",
   "scripts": {
     "dev": "rollup -c -w",
+    "start": "npm run dev",
     "lint": "eslint .",
     "precommit": "npm run lint",
     "release": "release-it",
