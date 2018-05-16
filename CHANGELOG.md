@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+* Setting options for the plugin using options of the TinyMCE editor.
+
+### Changed
+
+* Bumped the version of the widget to `3.x`, see [widget changelog][widget changelog].
+* Added `integration` to the default config to provide info
+  on the TinyMCE version and plugin version for User Agent with requests
+  to [Uploadcare Upload API](https://uploadcare.com/docs/api_reference/upload/).
+
+### Removed
+
+* Setting options for the plugin using the `config.js` file.
+
 ## 2.1.1, 2017-01-16
 
 ### Changed
