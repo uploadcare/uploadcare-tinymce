@@ -1,15 +1,27 @@
-if (typeof window.UPLOADCARE_CROP === 'undefined') {
-  window.UPLOADCARE_CROP = ''
+var uploadcareDefaultOptions = {
+  integration: getIntegration(),
+  crop: '',
 }
-
-var widgetConfig = {integration: getIntegration()}
-
-tinymce.ScriptLoader.add('https://ucarecdn.com/widget/' + '$_WIDGET_VERSION' + '/uploadcare/uploadcare.full.min.js')
 
 tinymce.create('tinymce.plugins.UploadcarePlugin', {
   init: function(ed, url) {
-    tinymce.ScriptLoader.add(url + '/config.js')
+    tinymce.ScriptLoader.add('https://ucarecdn.com/widget/' + '$_WIDGET_VERSION' + '/uploadcare/uploadcare.full.min.js')
     tinymce.ScriptLoader.loadQueue()
+
+    var uploadcareOptions = Object.keys(ed.settings)
+      .filter(function(settingName) {
+        return settingName.search('^uploadcare_') !== -1
+      })
+      .reduce(function(options, settingName) {
+        var optionName = settingName
+          .replace('uploadcare_', '')
+          .replace(/(_[a-z])/g, function(v) { return v.toUpperCase() })
+          .replace('_', '')
+
+        options[optionName] = ed.settings[settingName]
+
+        return options
+      }, uploadcareDefaultOptions)
 
     ed.addButton('uploadcare', {
       title: 'Uploadcare',
@@ -19,7 +31,7 @@ tinymce.create('tinymce.plugins.UploadcarePlugin', {
     })
 
     ed.addCommand('showUploadcareDialog', function() {
-      uploadcare.openDialog(null, widgetConfig).done(function(file) {
+      uploadcare.openDialog(null, uploadcareOptions).done(function(file) {
         file.done(function(fileInfo) {
           if (fileInfo.isImage) {
             ed.execCommand('mceInsertContent', false, '<img src="' + fileInfo.cdnUrl + '" />')
@@ -53,9 +65,7 @@ function getIntegration() {
   var tinymceVersion = tinyMCE.majorVersion + '.' + tinyMCE.minorVersion
   var pluginVerion = '$_VERSION'
 
-  var integration = 'TinyMCE/{tinymceVersion}; Uploadcare-TinyMCE/{pluginVerion}'
+  return 'TinyMCE/{tinymceVersion}; Uploadcare-TinyMCE/{pluginVerion}'
     .replace('{tinymceVersion}', tinymceVersion)
     .replace('{pluginVerion}', pluginVerion)
-
-  return integration
 }

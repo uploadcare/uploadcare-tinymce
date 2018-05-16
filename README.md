@@ -55,8 +55,6 @@ Add `uploadcare` to the list of your TinyMCE plugins and the toolbar.
 to identify a target Uploadcare [project][uc-projects] your uploads will go to.
 
 ```javascript
-UPLOADCARE_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'
-
 tinymce.init({
   selector: '#editor',
   plugins: 'uploadcare',
@@ -64,10 +62,38 @@ tinymce.init({
   external_plugins: {
     uploadcare: '/path/to/uploadcare/plugin.js',
   },
+  uploadcare_public_key: 'YOUR_PUBLIC_KEY',
 })
 ```
 
 ## Configuration
+
+### Plugin configuration
+
+To apply a custom configuration, initialize the TinyMCE editor
+providing additional options:
+
+```javascript
+tinymce.init({
+  selector: '#editor',
+  plugins: 'uploadcare',
+  toolbar: 'uploadcare',
+  external_plugins: {
+    uploadcare: '/path/to/uploadcare/plugin.js',
+  },
+  uploadcare_public_key: 'YOUR_PUBLIC_KEY',
+  uploadcare_image_shrink: '500x375', // set client-size resize for images
+  uploadcare_multiple: true, // allow multi-file uploads
+  uploadcare_multiple_max: 3,
+  uploadcare_crop: '1:1,4:3', // set crop options when handling images
+  /* feel free to add more options here */
+})
+```
+
+You can use any [widget options][uc-docs-widget-options]
+that are allowed to use as object key. Just add the `uploadcare_` prefix and
+use snake_case instead of camelCase for a name of an option, e.g.
+`imagesOnly` &rarr; `uploadcare_images_only`.
 
 ### Widget configuration
 
@@ -105,6 +131,7 @@ request at [hello@uploadcare.com][uc-email-hello].
 [demo]: https://uploadcare.github.io/uploadcare-tinymce/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-config]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-js-api]: https://uploadcare.com/docs/api_reference/javascript/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-docs-widget-options]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce#options
 [uc-docs-widget-options-public-key]: https://uploadcare.com/docs/uploads/widget/config/#option-public-key?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-dashboard]: https://uploadcare.com/dashboard/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-widget-configure]: https://uploadcare.com/widget/configure/?utm_source=github&utm_campaign=uploadcare-tinymce

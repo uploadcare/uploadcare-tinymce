@@ -9,10 +9,7 @@ const isWatching = process.argv.includes('-w') || process.argv.includes('--watch
 const browsersyncPlugin = isWatching && browsersync()
 
 const getPlugins = ({minify = false} = {}) => [
-  cp({
-    'src/icons': 'dist/uploadcare.tinymce/icons/',
-    'src/config.js': 'dist/uploadcare.tinymce/config.js',
-  }),
+  cp({'src/icons': 'dist/uploadcare.tinymce/icons/'}),
   license({
     banner: `
       <%= pkg.name %> <%= pkg.version %>
