@@ -6,12 +6,12 @@
     alt="">
 </a>
 
-This is a plugin for the [TinyMCE][tinymce] WYSIWYG HTML editor
-providing it to work with [Uploadcare Widget][uc-feature-widget].
+This is a plugin for [TinyMCE][tinymce], a WYSIWYG HTML editor,
+providing it for working with [Uploadcare Widget][uc-feature-widget].
 
-The plugin allows your users to upload files and images
-from local devices, social networks, cloud storages, and more.
-All that — without any backend code that is often required for uploads.
+The plugin allows TinyMCE users to upload media
+from their devices, social media, cloud storage, and more.
+All that without any backend code that's usually required to handle uploads.
 
 [![GitHub release][badge-release-img]][badge-release-url]&nbsp;
 [![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
@@ -42,7 +42,7 @@ or [releases page][github-releases].
 Extract the downloaded archive to the plugin directory of your TinyMCE
 installation.
 
-Other options here are either cloning the repo:
+Another option here is cloning the repo:
 
 ```bash
 git clone -b release git@github.com:uploadcare/uploadcare-tinymce.git plugins/uploadcare
@@ -82,17 +82,20 @@ tinymce.init({
     uploadcare: '/path/to/uploadcare/plugin.js',
   },
   uploadcare_public_key: 'YOUR_PUBLIC_KEY',
-  uploadcare_image_shrink: '500x375', // set client-size resize for images
-  uploadcare_multiple: true, // allow multi-file uploads
+  /* when handling images, you can resize them on a client to save bandwidth */
+  uploadcare_image_shrink: '500x375',
+  /* allow multi-file uploads */
+  uploadcare_multiple: true,
   uploadcare_multiple_max: 3,
-  uploadcare_crop: '1:1,4:3', // set crop options when handling images
+  /* set crop options when handling images */
+  uploadcare_crop: '1:1,4:3',
   /* feel free to add more options here */
 })
 ```
 
 You can use any [widget options][uc-docs-widget-options]
-that are allowed to use as object key. Just add the `uploadcare_` prefix and
-use snake_case instead of camelCase for a name of an option, e.g.
+providing those as object keys. Just add the `uploadcare_` prefix and
+use `snake_case` instead of `camelCase` in option names, e.g.
 `imagesOnly` &rarr; `uploadcare_images_only`.
 
 ### Widget configuration
