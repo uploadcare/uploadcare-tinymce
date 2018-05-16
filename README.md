@@ -22,7 +22,6 @@ All that — without any backend code that is often required for uploads.
 * [Usage](#usage)
 * [Configuration](#configuration)
   * [Widget configuration](#widget-configuration)
-* [Contributors](#contributors)
 * [Security issues](#security-issues)
 * [Feedback](#feedback)
 
@@ -103,15 +102,6 @@ allowed upload sources, implement file validation, and more.
 Use our live [widget sandbox][uc-widget-configure] as a starting point and consider
 checking out the docs on [widget configuration][uc-docs-widget-config] and its
 [JavaScript API][uc-docs-widget-js-api].
-
-## Contributors
-
-Below are the top-3 folks based on the total number of contributions to the
-project. See the full list of contributors [here][github-contributors].
-
-* [grayhound](https://github.com/grayhound)
-* [Zmoki](https://github.com/Zmoki)
-* [nd0out](https://github.com/nd0out)
 
 ## Security issues
 
