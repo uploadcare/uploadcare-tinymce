@@ -1,221 +1,142 @@
-# Uploadcare TinyMCE Plugin
+# File Uploader by Uploadcare
 
-That's the [Uploadcare][1] plugin for the [TinyMCE][2] WYSIWYG HTML editor.
-The plugin allows your users to upload files and images
-from local devices, social networks, cloud storages, and more.
-All that — without any backend code that is often required for uploads.
+<a href="https://uploadcare.com/?utm_source=github&utm_campaign=uploadcare-tinymce">
+  <img align="right" width="64" height="64"
+    src="https://ucarecdn.com/2f4864b7-ed0e-4411-965b-8148623aa680/uploadcare-logo-mark.svg"
+    alt="">
+</a>
 
-# Requirements
+This is a plugin for [TinyMCE][tinymce], a WYSIWYG HTML editor,
+providing it for working with [Uploadcare Widget][uc-feature-widget].
 
-* TinyMCE 4+
+The plugin allows TinyMCE users to upload media
+from their devices, social media, cloud storage, and more.
+All that without any backend code that's usually required to handle uploads.
 
-# Installation
+[![GitHub release][badge-release-img]][badge-release-url]&nbsp;
+[![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
 
-Installing the Uploadcare plugin is done via cloning
-the repo to your plugins directory with git:
+* [Demo](#demo)
+* [Requirements](#requirements)
+* [Install](#install)
+* [Usage](#usage)
+* [Configuration](#configuration)
+  * [Plugin configuration](#plugin-configuration)
+  * [Widget configuration](#widget-configuration)
+* [Security issues](#security-issues)
+* [Feedback](#feedback)
 
-    git clone git://github.com/uploadcare/uploadcare-tinymce.git plugins/uploadcare
+## Demo
 
-Next step is adding the plugin and its button
-while initializing TinyMCE:
+Check out the basic demo [here][demo].
 
-    tinymce.init({
-      ....
-      plugins : ["uploadcare,..."],
-      ....
-      toolbar : "... | link image uploadcare"
-      ....
-# Usage
+## Requirements
 
-Uploading files and images with the plugin
-will take you about three steps:
+TinyMCE 4+.
 
-1. Click the "Uploadcare" button.
-2. Select a file to upload.
-3. Either an image or a file link will appear in the editor.
+## Install
 
-We split the concepts of files and images here.
-That's because images can be transformed on-the-fly
-with our [CDN](https://uploadcare.com/documentation/cdn/).
-Technically, the plugin lets your TinyMCE editor to
-ineract with [Uploadcare Widget](https://uploadcare.com/documentation/widget/).
+Download the latest plugin archive from the [release branch][github-branch-release]
+or [releases page][github-releases].
 
-# Configuration
+Extract the downloaded archive to the plugin directory of your TinyMCE
+installation.
 
-All the settings are managed within the "config.js" file.
+Another option here is cloning the repo:
 
-There's only one **critical** setting — your
-Uploadcare public API key. It can be easily obtained
-once you're [registered](https://uploadcare.com/documentation/)
-with Uploadcare and have at least a single project
-created on your [dashboard](https://uploadcare.com/dashboard/).
-You can still use the demo public key during the dev stage.
-Keep in mind that demo account files are removed every few hours.
-
-    var UPLOADCARE_PUBLIC_KEY = "demopublickey";
-
-## Useful settings
-
-### Locale
-Use this setting to define a widget locale.
-Should be set as a global variable:
-
-```html
-<script>
-    UPLOADCARE_LOCALE = 'es';
-</script>
+```bash
+git clone -b release git@github.com:uploadcare/uploadcare-tinymce.git plugins/uploadcare
 ```
 
-### Crop
-This setting is applicable to images and
-enables custom crop for the plugin.
-Cropping will then become available after a user
-selects a file for upload.
-Please note that the file uploaded to your project
-still is an original image. Crop operations are performed
-on-the-fly with our 
-[CDN API](https://uploadcare.com/documentation/cdn/)
-and hence are included in a resulting image URL.
+## Usage
 
-Crop options are set in a string holding one or more
-crop presets. Those are divided by commas.
-If there are multiple crop presets present in an options
-string, users will then be able to choose which of
-them to apply during the crop step.
-Each preset consists of a size definition and an optional keyword.
+Add `uploadcare` to the list of your TinyMCE plugins and the toolbar.
+**Set your [public key][uc-docs-widget-options-public-key]**. Public keys are used
+to identify a target Uploadcare [project][uc-projects] your uploads will go to.
 
-- "disabled" — crop is disabled. Can't be combined with other presets.
-- "" or "free" — crop is enabled and users will be able to
-  define crop area freely on an image.
-- "2:3" — enables crop with the 2:3 aspect ratio.
-- "300x200" — same as above, but if the selected area is bigger than 300x200 px,
-  it will be downscaled to fit these dimensions.
-- "300x200 upscale" — same as above, but if the selected area is smaller than
-  300x200 px, it will be upscaled to the specified size.
-- "300x200 minimum" — users won't be able to select an area smaller than 300x200 px.
-  If an uploaded image is smaller than that, it will be upscaled.
-
-```html
-<script type="text/javascript">
-  UPLOADCARE_CROP = '4:3, 3:4';
-</script>
+```javascript
+tinymce.init({
+  selector: '#editor',
+  plugins: 'uploadcare',
+  toolbar: 'uploadcare',
+  external_plugins: {
+    uploadcare: '/path/to/uploadcare/plugin.js',
+  },
+  uploadcare_public_key: 'YOUR_PUBLIC_KEY',
+})
 ```
 
-### Tabs (Upload Sources)
-The widget can upload files from disks, URLs, social media,
-and many other sources. There's a separate tab for each
-upload source in the widget.
+## Configuration
 
-Here's the full list of tabs (sources) supported by
-the latest widget version.
+### Plugin configuration
 
-<table class="reference">
-  <tr>
-    <th>Code</th>
-    <th>File Source</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><code>file</code></td>
-    <td>Local disk</td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>camera</code></td>
-    <td>Local webcam</td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>url</code></td>
-    <td>Any URL</td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>facebook</code></td>
-    <td><a href="https://www.facebook.com/">Facebook</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>gdrive</code></td>
-    <td><a href="https://drive.google.com/">Google Drive</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>gphotos</code></td>
-    <td><a href="https://photos.google.com/">Google Photos</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>dropbox</code></td>
-    <td><a href="https://www.dropbox.com/">Dropbox</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>instagram</code></td>
-    <td><a href="http://instagram.com/">Instagram</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>evernote</code></td>
-    <td><a href="http://evernote.com/">Evernote</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>flickr</code></td>
-    <td><a href="https://www.flickr.com/">Flickr</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>skydrive</code></td>
-    <td><a href="https://onedrive.live.com/">OneDrive</a></td>
-    <th>On</th>
-  </tr>
-  <tr>
-    <td><code>box</code></td>
-    <td><a href="https://www.box.com/">Box</a></td>
-    <th>Off</th>
-  </tr>
-  <tr>
-    <td><code>vk</code></td>
-    <td><a href="http://vk.com/">VK</a></td>
-    <th>Off</th>
-  </tr>
-  <tr>
-    <td><code>huddle</code></td>
-    <td><a href="https://www.huddle.com/">Huddle</a></td>
-    <th>Off</th>
-  </tr>
-</table>
+To apply a custom configuration, initialize the TinyMCE editor
+providing additional options:
 
-The set of enabled sources can be reconfigured.
-This is done through specifying their respective 
-codes in an options string, as space-separated values.
-Use the `all` value to enable all supported sources.
-
-```html
-<script type="text/javascript">
-  UPLOADCARE_TABS = 'file url instagram flickr';
-</script>
+```javascript
+tinymce.init({
+  selector: '#editor',
+  plugins: 'uploadcare',
+  toolbar: 'uploadcare',
+  external_plugins: {
+    uploadcare: '/path/to/uploadcare/plugin.js',
+  },
+  uploadcare_public_key: 'YOUR_PUBLIC_KEY',
+  /* when handling images, you can resize them on a client to save bandwidth */
+  uploadcare_image_shrink: '500x375',
+  /* allow multi-file uploads */
+  uploadcare_multiple: true,
+  uploadcare_multiple_max: 3,
+  /* set crop options when handling images */
+  uploadcare_crop: '1:1,4:3',
+  /* feel free to add more options here */
+})
 ```
 
-## Other settings
+You can use any [widget options][uc-docs-widget-options]
+providing those as object keys. Just add the `uploadcare_` prefix and
+use `snake_case` instead of `camelCase` in option names, e.g.
+`imagesOnly` &rarr; `uploadcare_images_only`.
 
-All the Uploadcare Widget settings can be found in our [docs][4].
-Please read those to unleash the uploading power in its full.
+### Widget configuration
 
-# Contributors
+Uploadcare Widget can be deeply customized to suit your UX/UI. You can define
+allowed upload sources, implement file validation, and more.
 
-* [@grayhound](https://github.com/grayhound)
-* [@dmitry-mukhin](https://github.com/dmitry-mukhin)
-* [@dimaninc](https://github.com/dimaninc)
-* [@Zmoki](https://github.com/Zmoki)
+Use our live [widget sandbox][uc-widget-configure] as a starting point and consider
+checking out the docs on [widget configuration][uc-docs-widget-config] and its
+[JavaScript API][uc-docs-widget-js-api].
 
-# Contact
+## Security issues
 
-Got any thoughts to share? Hit us up at
-[hello@uploadcare.com](mailto:hello@uploadcare.com).
+If you think you ran into something in Uploadcare libraries which might have
+security implications, please hit us up at [bugbounty@uploadcare.com][uc-email-bounty]
+or Hackerone.
 
-[1]: https://uploadcare.com/
-[2]: http://www.tinymce.com/
-[3]: https://uploadcare.com/documentation/widget/#crop
-[4]: https://uploadcare.com/documentation/widget/#configuration
+We'll contact you personally in a short time to fix an issue through co-op and
+prior to any public disclosure.
+
+## Feedback
+
+Issues and PRs are welcome. You can provide your feedback or drop us a support
+request at [hello@uploadcare.com][uc-email-hello].
+
+[tinymce]: http://www.tinymce.com/
+[demo]: https://uploadcare.github.io/uploadcare-tinymce/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-docs-widget-config]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-docs-widget-js-api]: https://uploadcare.com/docs/api_reference/javascript/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-docs-widget-options]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce#options
+[uc-docs-widget-options-public-key]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce#option-public-key
+[uc-dashboard]: https://uploadcare.com/dashboard/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-widget-configure]: https://uploadcare.com/widget/configure/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-feature-widget]: https://uploadcare.com/features/widget/?utm_source=github&utm_campaign=uploadcare-tinymce
+[uc-projects]: https://uploadcare.com/docs/keys/?utm_source=github&utm_campaign=uploadcare-tinymce#projects
+[uc-email-bounty]: mailto:bugbounty@uploadcare.com
+[uc-email-hello]: mailto:hello@uploadcare.com
+[github-releases]: https://github.com/uploadcare/uploadcare-tinymce/releases
+[github-branch-release]: https://github.com/uploadcare/uploadcare-tinymce/tree/release
+[github-contributors]: https://github.com/uploadcare/uploadcare-tinymce/graphs/contributors
+[badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
+[badge-stack-url]: https://stackshare.io/uploadcare/stacks/
+[badge-release-img]: https://img.shields.io/github/release/uploadcare/uploadcare-tinymce.svg
+[badge-release-url]: https://github.com/uploadcare/uploadcare-tinymce/releases
