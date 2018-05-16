@@ -1,12 +1,8 @@
-# This list of authors is generated automatically based on the git history of this repo.
+# This list of authors is based on the git history of this repo.
 
 Aleksandr Grenishin <nd0ut.me@gmail.com>
-Dmitry Mukhin <dm+github@uploadcare.com>
 Dmitry Mukhin <dm@uploadcare.com>
 Dmitry Petrov <dimaninc@gmail.com>
 Elijah <ilya@uploadcare.com>
 Gray Hound <admin@devilmaydie.name>
-Zarema <Zmoki@users.noreply.github.com>
-Zarema <zarema.khalilova@gmail.com>
 Zarema Khalilova <zarema.khalilova@gmail.com>
-Александр Гренишин <nd0ut.me@gmail.com>
