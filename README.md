@@ -21,6 +21,7 @@ All that — without any backend code that is often required for uploads.
 * [Install](#install)
 * [Usage](#usage)
 * [Configuration](#configuration)
+  * [Plugin configuration](#plugin-configuration)
   * [Widget configuration](#widget-configuration)
 * [Security issues](#security-issues)
 * [Feedback](#feedback)
