@@ -1,12 +1,8 @@
 import jscc from 'rollup-plugin-jscc'
 import license from 'rollup-plugin-license'
 import cp from 'rollup-plugin-cp'
-import browsersync from 'rollup-plugin-browsersync'
 import pkg from './package.json'
 import uglify from 'rollup-plugin-uglify'
-
-const isWatching = process.argv.includes('-w') || process.argv.includes('--watch')
-const browsersyncPlugin = isWatching && browsersync()
 
 const getPlugins = ({minify = false} = {}) => [
   cp({'src/icons': 'dist/uploadcare.tinymce/icons/'}),
@@ -19,7 +15,6 @@ const getPlugins = ({minify = false} = {}) => [
     `,
   }),
   jscc({values: {_WIDGET_VERSION: pkg.widgetVersion}}),
-  browsersyncPlugin,
   minify && uglify(),
 ]
 

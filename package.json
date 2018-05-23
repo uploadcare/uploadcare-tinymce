@@ -6,7 +6,7 @@
   "main": "uploadcare.tinymce.js",
   "scripts": {
     "dev": "rollup -c -w",
-    "start": "npm run dev",
+    "start": "browser-sync start --config scripts/browser-sync.config.js",
     "lint": "eslint .",
     "precommit": "npm run lint",
     "release": "release-it",
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/uploadcare/uploadcare-tinymce#readme",
   "devDependencies": {
     "archiver": "^2.1.1",
+    "browser-sync": "^2.24.4",
     "eslint": "^4.19.1",
     "eslint-config-uploadcare": "^1.1.0",
     "gh-pages": "^1.1.0",
@@ -35,7 +36,6 @@
     "release-it": "^7.4.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.58.2",
-    "rollup-plugin-browsersync": "^0.2.6",
     "rollup-plugin-cp": "^0.1.3",
     "rollup-plugin-jscc": "^0.3.3",
     "rollup-plugin-license": "^0.6.0",
