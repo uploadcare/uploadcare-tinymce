@@ -2,7 +2,7 @@
  * uploadcare-tinymce 3.0.0
  * File Uploader by Uploadcare, a plugin providing TinyMCE users to upload media via Uploadcare Widget.
  * https://github.com/uploadcare/uploadcare-tinymce#readme
- * Date: 2018-05-16
+ * Date: 2018-05-23
  */
 
 (function () {
