@@ -31,13 +31,34 @@ tinymce.create('tinymce.plugins.UploadcarePlugin', {
     })
 
     ed.addCommand('showUploadcareDialog', function() {
-      uploadcare.openDialog(null, uploadcareOptions).done(function(file) {
+      var cdnBase = uploadcareOptions.cdnBase || uploadcare.defaults.cdnBase
+      var file = null
+      var selectedNode = ed.selection.getNode()
+
+      if (selectedNode.nodeName === 'IMG') {
+        if (selectedNode.src.indexOf(cdnBase) === 0) {
+          file = uploadcare.fileFrom('uploaded', selectedNode.src, uploadcareOptions)
+        }
+      }
+      if (selectedNode.nodeName === 'A') {
+        if (selectedNode.href.indexOf(cdnBase) === 0) {
+          file = uploadcare.fileFrom('uploaded', selectedNode.href, uploadcareOptions)
+        }
+      }
+
+      uploadcare.openDialog(file, uploadcareOptions).done(function(file) {
         file.done(function(fileInfo) {
           if (fileInfo.isImage) {
-            ed.execCommand('mceInsertContent', false, '<img src="' + fileInfo.cdnUrl + '" />')
+            ed.selection.setNode(tinymce.activeEditor.dom.create('img', {src: fileInfo.cdnUrl}))
+          }
+          else if (selectedNode.nodeName === 'A') {
+            selectedNode.parentNode.replaceChild(
+              tinymce.activeEditor.dom.create('a', {href: fileInfo.cdnUrl}, fileInfo.name),
+              selectedNode
+            )
           }
           else {
-            ed.execCommand('mceInsertContent', false, '<a href="' + fileInfo.cdnUrl + '">' + fileInfo.name + '</a>')
+            ed.selection.setNode(tinymce.activeEditor.dom.create('a', {href: fileInfo.cdnUrl}, fileInfo.name))
           }
         })
       })
