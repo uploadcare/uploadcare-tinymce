@@ -7,12 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+[Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.1.0...HEAD
+
+## [3.1.0], 2019-02-21
+
 ### Added
 
 * The ability to edit the inserted images
   and links to downloaded files. See [#9][github-pr-9].
 
-[Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.0.0...HEAD
+[3.1.0]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.0.0...v3.1.0
 [github-pr-9]: https://github.com/uploadcare/uploadcare-tinymce/pull/9
 
 ## 3.0.0, 2018-05-16
