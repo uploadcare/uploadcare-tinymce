@@ -12,7 +12,9 @@
     "release": "release-it",
     "deploy:demo": "node scripts/deploy-demo.js",
     "deploy:release": "node scripts/deploy-release.js",
-    "build": "npm run clean && rollup -c && npm run archive",
+    "prebuild": "npm run clean",
+    "build": "rollup -c",
+    "postbuild": "npm run archive",
     "clean": "rimraf dist",
     "archive": "node scripts/archive-dist.js"
   },
@@ -27,18 +29,19 @@
   },
   "homepage": "https://github.com/uploadcare/uploadcare-tinymce#readme",
   "devDependencies": {
-    "archiver": "^2.1.1",
-    "browser-sync": "^2.24.4",
-    "eslint": "^4.19.1",
+    "archiver": "^3.0.0",
+    "browser-sync": "^2.26.3",
+    "eslint": "^5.14.1",
     "eslint-config-uploadcare": "^1.1.0",
-    "gh-pages": "^1.1.0",
+    "gh-pages": "^2.0.1",
     "husky": "^0.14.3",
     "release-it": "^7.4.2",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.58.2",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.2.2",
     "rollup-plugin-cp": "^0.1.3",
-    "rollup-plugin-jscc": "^0.3.3",
-    "rollup-plugin-license": "^0.6.0",
-    "rollup-plugin-uglify": "^3.0.0"
+    "rollup-plugin-cpy": "^1.1.0",
+    "rollup-plugin-jscc": "^1.0.0",
+    "rollup-plugin-license": "^0.8.1",
+    "rollup-plugin-uglify": "^6.0.2"
   }
 }

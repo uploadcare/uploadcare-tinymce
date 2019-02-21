@@ -1,11 +1,15 @@
 import jscc from 'rollup-plugin-jscc'
 import license from 'rollup-plugin-license'
-import cp from 'rollup-plugin-cp'
+import cpy from 'rollup-plugin-cpy'
 import pkg from './package.json'
-import uglify from 'rollup-plugin-uglify'
+import {uglify} from 'rollup-plugin-uglify'
 
 const getPlugins = ({minify = false} = {}) => [
-  cp({'src/icons': 'dist/uploadcare.tinymce/icons/'}),
+  cpy({
+    files: 'src/icons',
+    dest: 'dist/uploadcare.tinymce/icons/',
+    options: {verbose: true},
+  }),
   license({
     banner: `
       <%= pkg.name %> <%= pkg.version %>
