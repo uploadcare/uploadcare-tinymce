@@ -1,8 +1,8 @@
 /**
- * uploadcare-tinymce 3.0.0
+ * uploadcare-tinymce 3.1.0
  * File Uploader by Uploadcare, a plugin providing TinyMCE users to upload media via Uploadcare Widget.
  * https://github.com/uploadcare/uploadcare-tinymce#readme
- * Date: 2018-05-23
+ * Date: 2019-02-21
  */
 
 (function () {
@@ -41,13 +41,34 @@
       });
 
       ed.addCommand('showUploadcareDialog', function() {
-        uploadcare.openDialog(null, uploadcareOptions).done(function(file) {
+        var cdnBase = uploadcareOptions.cdnBase || uploadcare.defaults.cdnBase;
+        var file = null;
+        var selectedNode = ed.selection.getNode();
+
+        if (selectedNode.nodeName === 'IMG') {
+          if (selectedNode.src.indexOf(cdnBase) === 0) {
+            file = uploadcare.fileFrom('uploaded', selectedNode.src, uploadcareOptions);
+          }
+        }
+        if (selectedNode.nodeName === 'A') {
+          if (selectedNode.href.indexOf(cdnBase) === 0) {
+            file = uploadcare.fileFrom('uploaded', selectedNode.href, uploadcareOptions);
+          }
+        }
+
+        uploadcare.openDialog(file, uploadcareOptions).done(function(file) {
           file.done(function(fileInfo) {
             if (fileInfo.isImage) {
-              ed.execCommand('mceInsertContent', false, '<img src="' + fileInfo.cdnUrl + '" />');
+              ed.selection.setNode(tinymce.activeEditor.dom.create('img', {src: fileInfo.cdnUrl}));
+            }
+            else if (selectedNode.nodeName === 'A') {
+              selectedNode.parentNode.replaceChild(
+                tinymce.activeEditor.dom.create('a', {href: fileInfo.cdnUrl}, fileInfo.name),
+                selectedNode
+              );
             }
             else {
-              ed.execCommand('mceInsertContent', false, '<a href="' + fileInfo.cdnUrl + '">' + fileInfo.name + '</a>');
+              ed.selection.setNode(tinymce.activeEditor.dom.create('a', {href: fileInfo.cdnUrl}, fileInfo.name));
             }
           });
         });
@@ -64,7 +85,7 @@
         author: 'Uploadcare',
         authorurl: 'https://uploadcare.com/',
         infourl: 'https://github.com/uploadcare/uploadcare-tinymce',
-        version: '3.0.0',
+        version: '3.1.0',
       }
     },
   });
@@ -73,7 +94,7 @@
 
   function getIntegration() {
     var tinymceVersion = tinyMCE.majorVersion + '.' + tinyMCE.minorVersion;
-    var pluginVerion = '3.0.0';
+    var pluginVerion = '3.1.0';
 
     return 'TinyMCE/{tinymceVersion}; Uploadcare-TinyMCE/{pluginVerion}'
       .replace('{tinymceVersion}', tinymceVersion)
