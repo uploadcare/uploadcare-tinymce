@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+* The ability to edit the inserted images
+  and links to downloaded files. See [#9][github-pr-9].
+
+[Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.0.0...HEAD
+[github-pr-9]: https://github.com/uploadcare/uploadcare-tinymce/pull/9
+
 ## 3.0.0, 2018-05-16
 
 ### Added
