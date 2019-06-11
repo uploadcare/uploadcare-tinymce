@@ -42,6 +42,7 @@
     "rollup-plugin-cpy": "^1.1.0",
     "rollup-plugin-jscc": "^1.0.0",
     "rollup-plugin-license": "^0.8.1",
+    "rollup-plugin-svgo": "^1.0.3",
     "rollup-plugin-uglify": "^6.0.2"
   }
 }
