@@ -1,3 +1,5 @@
+/* global tinymce, uploadcare */
+/* eslint-disable no-param-reassign */
 import icon from './icons/uploadcare.svg'
 
 var uploadcareDefaultOptions = {
@@ -87,7 +89,7 @@ tinymce.create('tinymce.plugins.UploadcarePlugin', {
 tinymce.PluginManager.add('uploadcare', tinymce.plugins.UploadcarePlugin)
 
 function getIntegration() {
-  var tinymceVersion = tinyMCE.majorVersion + '.' + tinyMCE.minorVersion
+  var tinymceVersion = tinymce.majorVersion + '.' + tinymce.minorVersion
   var pluginVerion = '$_VERSION'
 
   return 'TinyMCE/{tinymceVersion}; Uploadcare-TinyMCE/{pluginVerion}'
