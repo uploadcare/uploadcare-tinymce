@@ -32,7 +32,9 @@ Check out the basic demo [here][demo].
 
 ## Requirements
 
-TinyMCE 4+.
+TinyMCE 5.x.
+
+For TinyMCE 4.x. use [v3.1.0][latest-for-v4]
 
 ## Install
 
@@ -140,3 +142,4 @@ request at [hello@uploadcare.com][uc-email-hello].
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
 [badge-release-img]: https://img.shields.io/github/release/uploadcare/uploadcare-tinymce.svg
 [badge-release-url]: https://github.com/uploadcare/uploadcare-tinymce/releases
+[latest-for-v4]: https://github.com/uploadcare/uploadcare-tinymce/releases/tag/v3.1.0

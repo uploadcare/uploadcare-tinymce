@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+* Support for TinyMCE 5.x. See [#11][github-pr-11].
+
 [Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.1.0...HEAD
+[github-pr-11]: https://github.com/uploadcare/uploadcare-tinymce/pull/11
 
 ## [3.1.0], 2019-02-21
 
