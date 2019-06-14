@@ -24,7 +24,7 @@ tinymce.create('tinymce.plugins.UploadcarePlugin', {
       }, uploadcareDefaultOptions)
 
     ed.addButton('uploadcare', {
-      title: 'Uploadcare',
+      title: 'Insert media',
       cmd: 'showUploadcareDialog',
       image: url + '/icons/uploadcare.png',
       stateSelector: 'img',
