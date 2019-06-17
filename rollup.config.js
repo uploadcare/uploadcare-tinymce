@@ -3,8 +3,10 @@ import license from 'rollup-plugin-license'
 import cpy from 'rollup-plugin-cpy'
 import pkg from './package.json'
 import {uglify} from 'rollup-plugin-uglify'
+import svgo from 'rollup-plugin-svgo'
 
 const getPlugins = ({minify = false} = {}) => [
+  svgo({raw: true}),
   cpy({
     files: 'src/icons',
     dest: 'dist/uploadcare.tinymce/icons/',
