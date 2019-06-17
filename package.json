@@ -1,6 +1,6 @@
 {
   "name": "uploadcare-tinymce",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "widgetVersion": "3.x",
   "description": "File Uploader by Uploadcare, a plugin providing TinyMCE users to upload media via Uploadcare Widget.",
   "main": "uploadcare.tinymce.js",
