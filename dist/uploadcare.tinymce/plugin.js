@@ -1,5 +1,5 @@
 /**
- * uploadcare-tinymce 3.1.1
+ * uploadcare-tinymce 3.2.0
  * File Uploader by Uploadcare, a plugin providing TinyMCE users to upload media via Uploadcare Widget.
  * https://github.com/uploadcare/uploadcare-tinymce#readme
  * Date: 2019-06-17
@@ -105,7 +105,7 @@
         author: 'Uploadcare',
         authorurl: 'https://uploadcare.com/',
         infourl: 'https://github.com/uploadcare/uploadcare-tinymce',
-        version: '3.1.1',
+        version: '3.2.0',
       }
     },
   });
@@ -114,7 +114,7 @@
 
   function getIntegration() {
     var tinymceVersion = tinymce.majorVersion + '.' + tinymce.minorVersion;
-    var pluginVerion = '3.1.1';
+    var pluginVerion = '3.2.0';
 
     return 'TinyMCE/{tinymceVersion}; Uploadcare-TinyMCE/{pluginVerion}'
       .replace('{tinymceVersion}', tinymceVersion)
