@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+* Change button title from `Uploadcare` to `Insert media` to make it clearer.
+  See [#12][github-pr-12].
+
+[github-pr-12]: https://github.com/uploadcare/uploadcare-tinymce/pull/12
 [Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.1.0...HEAD
 
 ## [3.1.0], 2019-02-21
