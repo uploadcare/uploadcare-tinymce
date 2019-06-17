@@ -1,9 +1,11 @@
 {
-  "src": {
-    "tagName": "v%s",
-    "afterReleaseCommand": "npm run deploy:demo && npm run deploy:release"
+  "hooks": {
+    "after:bump": "npm run build",
+    "after:release": "npm run deploy:demo && npm run deploy:release"
   },
-  "buildCommand": "npm run build",
+  "git": {
+    "tagName": "v%s"
+  },
   "github": {
     "release": true,
     "draft": true,
