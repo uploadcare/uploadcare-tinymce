@@ -28,13 +28,13 @@ All that without any backend code that's usually required to handle uploads.
 
 ## Demo
 
-Check out the basic demo [here][demo].
+Check out the basic demo for TinyMCE 4.x [here][demo-4].
+
+And for TinyMCE 5.x — [here][demo-5].
 
 ## Requirements
 
-TinyMCE 5.x.
-
-For TinyMCE 4.x. use [v3.1.0][latest-for-v4]
+TinyMCE 4.x or TinyMCE 5.x
 
 ## Install
 
@@ -124,7 +124,8 @@ Issues and PRs are welcome. You can provide your feedback or drop us a support
 request at [hello@uploadcare.com][uc-email-hello].
 
 [tinymce]: http://www.tinymce.com/
-[demo]: https://uploadcare.github.io/uploadcare-tinymce/?utm_source=github&utm_campaign=uploadcare-tinymce
+[demo-4]: https://uploadcare.github.io/uploadcare-tinymce/demo/4.x/?utm_source=github&utm_campaign=uploadcare-tinymce
+[demo-5]: https://uploadcare.github.io/uploadcare-tinymce/demo/5.x/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-config]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-js-api]: https://uploadcare.com/docs/api_reference/javascript/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-options]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce#options
@@ -142,4 +143,3 @@ request at [hello@uploadcare.com][uc-email-hello].
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
 [badge-release-img]: https://img.shields.io/github/release/uploadcare/uploadcare-tinymce.svg
 [badge-release-url]: https://github.com/uploadcare/uploadcare-tinymce/releases
-[latest-for-v4]: https://github.com/uploadcare/uploadcare-tinymce/releases/tag/v3.1.0
