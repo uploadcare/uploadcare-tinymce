@@ -8,11 +8,9 @@ var uploadcareDefaultOptions = {
 }
 
 tinymce.create('tinymce.plugins.UploadcarePlugin', {
-  init: function(editor) {
+  init: function(editor, url) {
     tinymce.ScriptLoader.add('https://ucarecdn.com/widget/' + '$_WIDGET_VERSION' + '/uploadcare/uploadcare.full.min.js')
     tinymce.ScriptLoader.loadQueue()
-
-    editor.ui.registry.addIcon('uploadcare', icon)
 
     var uploadcareOptions = Object.keys(editor.settings)
       .filter(function(settingName) {
@@ -65,10 +63,26 @@ tinymce.create('tinymce.plugins.UploadcarePlugin', {
       })
     }
 
-    editor.ui.registry.addButton('uploadcare', {
-      onAction: showUploadcareDialog,
-      icon: 'uploadcare',
-    })
+    if (detectMajorVersion() === 4) {
+      editor.addCommand('showUploadcareDialog', showUploadcareDialog)
+
+      editor.addButton('uploadcare', {
+        title: 'Insert media',
+        cmd: 'showUploadcareDialog',
+        image: url + '/icons/uploadcare.png',
+        stateSelector: 'img',
+      })
+    }
+    else if (detectMajorVersion() === 5) {
+      editor.ui.registry.addIcon('uploadcare', icon)
+
+      editor.ui.registry.addButton('uploadcare', {
+        text: 'Insert media',
+        tooltip: 'Insert media',
+        onAction: showUploadcareDialog,
+        icon: 'uploadcare',
+      })
+    }
   },
 
   createControl: function() {
@@ -95,4 +109,10 @@ function getIntegration() {
   return 'TinyMCE/{tinymceVersion}; Uploadcare-TinyMCE/{pluginVerion}'
     .replace('{tinymceVersion}', tinymceVersion)
     .replace('{pluginVerion}', pluginVerion)
+}
+
+function detectMajorVersion() {
+  var version = parseInt(tinymce.majorVersion)
+
+  return version
 }
