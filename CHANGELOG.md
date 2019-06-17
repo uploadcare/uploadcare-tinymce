@@ -11,8 +11,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Support for TinyMCE 5.x. See [#11][github-pr-11].
 
-[Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.1.0...HEAD
+[Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.1.1...HEAD
 [github-pr-11]: https://github.com/uploadcare/uploadcare-tinymce/pull/11
+
+## [3.1.1], 2019-06-17
+
+### Changed
+
+* Update button title from `Uploadcare` to `Insert media` to make it clearer.
+  See [#12][github-pr-12].
+
+[github-pr-12]: https://github.com/uploadcare/uploadcare-tinymce/pull/12
 
 ## [3.1.0], 2019-02-21
 
