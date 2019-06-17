@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.1.0...HEAD
+[Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.1.1...HEAD
 
 ## [3.1.1], 2019-06-17
 
