@@ -7,13 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-[Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.2.1...HEAD
+[Unreleased]: https://github.com/uploadcare/uploadcare-tinymce/compare/v3.2.2...HEAD
+
+## [3.2.2], 2019-06-17
+
+### Fixed
+
+* Fix dist tarball generation due to outdated `release-it` config.
 
 ## [3.2.1], 2019-06-17
 
 ### Fixed
 
-* Fix missing png icon for TinyMCE 4.x
+* Fix missing png icon for TinyMCE 4.x.
 
 ## [3.2.0], 2019-06-17
 
