@@ -109,6 +109,29 @@ Use our live [widget sandbox][uc-widget-configure] as a starting point and consi
 checking out the docs on [widget configuration][uc-docs-widget-config] and its
 [JavaScript API][uc-docs-widget-js-api].
 
+### EffectsTab
+
+```
+tinymce.init({
+  selector: '#editor',
+  plugins: 'uploadcare',
+  toolbar: 'uploadcare',
+  external_plugins: {
+    uploadcare: '/path/to/uploadcare/plugin.js',
+  },
+  init_instance_callback: () => {
+    window.UPLOADCARE_EFFECTS = 'crop,rotate,mirror';
+
+    function onSuccess() {
+      uploadcare.registerTab('preview', uploadcareTabEffects)
+    }
+
+    tinymce.ScriptLoader.add('https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js', onSuccess)
+    tinymce.ScriptLoader.loadQueue()
+  }
+})
+```
+
 ## Security issues
 
 If you think you ran into something in Uploadcare libraries which might have
