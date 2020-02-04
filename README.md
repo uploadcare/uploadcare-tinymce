@@ -109,7 +109,9 @@ Use our live [widget sandbox][uc-widget-configure] as a starting point and consi
 checking out the docs on [widget configuration][uc-docs-widget-config] and its
 [JavaScript API][uc-docs-widget-js-api].
 
-### EffectsTab
+### Effects Tab
+
+To enable [Effects Tab for Uploadcare Widget](https://github.com/uploadcare/uploadcare-widget-tab-effects), you need to add `init_instance_callback` callback to the options of TinyMCE's `init` method with the following code:
 
 ```
 tinymce.init({
@@ -119,7 +121,7 @@ tinymce.init({
   external_plugins: {
     uploadcare: '/path/to/uploadcare/plugin.js',
   },
-  init_instance_callback: () => {
+  init_instance_callback: function() {
     window.UPLOADCARE_EFFECTS = 'crop,rotate,mirror';
 
     function onSuccess() {
