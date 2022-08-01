@@ -50,8 +50,8 @@ Another option here is cloning the repo:
 git clone -b release git@github.com:uploadcare/uploadcare-tinymce.git plugins/uploadcare
 ```
 
-`uploadcare.tinymce@6.x` - compatible with TinyMCE 6.x
-`uploadcare.tinymce` - compatible with TinyMCE 4.x and 5.x
+* `uploadcare.tinymce@6.x` - compatible with TinyMCE 6.x
+* `uploadcare.tinymce` - compatible with TinyMCE 4.x and 5.x
 
 ## Usage
 
