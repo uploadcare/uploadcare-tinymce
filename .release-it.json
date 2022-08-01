@@ -3,9 +3,6 @@
     "after:bump": "npm run build",
     "after:release": "npm run deploy:demo && npm run deploy:release"
   },
-  "git": {
-    "tagName": "v%s"
-  },
   "github": {
     "release": true,
     "draft": true,
