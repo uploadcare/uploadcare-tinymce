@@ -1,7 +1,7 @@
 const ghpages = require('gh-pages')
 
 ghpages.publish(
-  './dist/uploadcare.tinymce/',
+  './dist/',
   {
     branch: 'release',
     message: 'Release ' + process.env.npm_package_version,
