@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "uploadcare-tinymce",
   "version": "3.2.2",
   "widgetVersion": "3.x",

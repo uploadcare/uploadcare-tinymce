@@ -40,7 +40,7 @@
   uploadcare_image_shrink: '500x375',
 })</code></pre>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.5/tinymce.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.1.2/tinymce.min.js"></script>
     <script>
       tinymce.init({
         height: '300',
@@ -48,11 +48,13 @@
         plugins: 'uploadcare',
         toolbar: 'uploadcare',
         external_plugins: {
-          'uploadcare': 'https://uploadcare.github.io/uploadcare-tinymce/dist/uploadcare.tinymce/plugin.js'
-          // 'uploadcare': '/dist/uploadcare.tinymce/plugin.js'
+          'uploadcare': 'https://uploadcare.github.io/uploadcare-tinymce/dist/uploadcare.tinymce@6.x/plugin.js'
+          // 'uploadcare': '/dist/uploadcare.tinymce@6.x/plugin.js'
         },
-        uploadcare_public_key: 'demopublickey',
-        uploadcare_image_shrink: '500x375',
+        uploadcare: {
+          publicKey: 'demopublickey',
+          imageShrink: '500x375',
+        }
       })
     </script>
 

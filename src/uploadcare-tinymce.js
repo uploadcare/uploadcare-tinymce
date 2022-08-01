@@ -1,3 +1,10 @@
+/**
+ * **WARNING**: DO NOT REMOVE OR RENAME THIS FILE!
+ * This file is here for compatibilty purposes.
+ * We're serving this file from gh pages in the demo,
+ * and some TinyMCE 4.x or 5.x users could use it.
+ */
+
 /* global tinymce, uploadcare */
 /* eslint-disable no-param-reassign */
 import icon from './icons/uploadcare.svg'

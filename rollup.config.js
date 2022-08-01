@@ -41,4 +41,20 @@ export default [
       format: 'iife',
     },
   },
+  {
+    input: 'src/uploadcare-tinymce@6.x.js',
+    plugins: getPlugins({minify: false}),
+    output: {
+      file: 'dist/uploadcare.tinymce@6.x/plugin.js',
+      format: 'iife',
+    },
+  },
+  {
+    input: 'src/uploadcare-tinymce@6.x.js',
+    plugins: getPlugins({minify: true}),
+    output: {
+      file: 'dist/uploadcare.tinymce@6.x/plugin.min.js',
+      format: 'iife',
+    },
+  },
 ]

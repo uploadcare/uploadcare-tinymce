@@ -28,13 +28,15 @@ All that without any backend code that's usually required to handle uploads.
 
 ## Demo
 
-Check out the basic demo for TinyMCE 4.x [here][demo-4].
-
-And for TinyMCE 5.x — [here][demo-5].
+* [TinyMCE 6.x demo][demo-6].
+* [TinyMCE 5.x demo][demo-5].
+* [TinyMCE 4.x demo][demo-4].
 
 ## Requirements
 
-TinyMCE 4.x or TinyMCE 5.x
+* TinyMCE 6.x
+* TinyMCE 5.x
+* TinyMCE 4.x
 
 ## Install
 
@@ -50,6 +52,9 @@ Another option here is cloning the repo:
 git clone -b release git@github.com:uploadcare/uploadcare-tinymce.git plugins/uploadcare
 ```
 
+`uploadcare.tinymce@6.x` - compatible with TinyMCE 6.x
+`uploadcare.tinymce` - compatible with TinyMCE 4.x and 5.x
+
 ## Usage
 
 Add `uploadcare` to the list of your TinyMCE plugins and the toolbar.
@@ -64,6 +69,11 @@ tinymce.init({
   external_plugins: {
     uploadcare: '/path/to/uploadcare/plugin.js',
   },
+  // options example for 6.x
+  uploadcare: {
+    publicKey: 'YOUR_PUBLIC_KEY'
+  }
+  // options example for 4.x and 5.x
   uploadcare_public_key: 'YOUR_PUBLIC_KEY',
 })
 ```
@@ -73,7 +83,33 @@ tinymce.init({
 ### Plugin configuration
 
 To apply a custom configuration, initialize the TinyMCE editor
-providing additional options:
+providing additional options.
+
+Here is example for TinyMCE 6.x:
+
+```javascript
+tinymce.init({
+  selector: '#editor',
+  plugins: 'uploadcare',
+  toolbar: 'uploadcare',
+  external_plugins: {
+    uploadcare: '/path/to/uploadcare/plugin.js',
+  },
+  uploadcare: {
+    publicKey: 'YOUR_PUBLIC_KEY',
+    /* when handling images, you can resize them on a client to save bandwidth */
+    imageShrink: '500x375',
+    /* allow multi-file uploads */
+    multiple: true,
+    multipleMax: 3,
+    /* set crop options when handling images */
+    crop: '1:1,4:3',
+    /* feel free to add more options here */
+  }
+})
+```
+
+Example for TinyMCE 4.x and 5.x:
 
 ```javascript
 tinymce.init({
@@ -151,6 +187,7 @@ request at [hello@uploadcare.com][uc-email-hello].
 [tinymce]: http://www.tinymce.com/
 [demo-4]: https://uploadcare.github.io/uploadcare-tinymce/demo/4.x/?utm_source=github&utm_campaign=uploadcare-tinymce
 [demo-5]: https://uploadcare.github.io/uploadcare-tinymce/demo/5.x/?utm_source=github&utm_campaign=uploadcare-tinymce
+[demo-6]: https://uploadcare.github.io/uploadcare-tinymce/demo/6.x/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-config]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-js-api]: https://uploadcare.com/docs/api_reference/javascript/?utm_source=github&utm_campaign=uploadcare-tinymce
 [uc-docs-widget-options]: https://uploadcare.com/docs/uploads/widget/config/?utm_source=github&utm_campaign=uploadcare-tinymce#options
