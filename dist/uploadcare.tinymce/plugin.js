@@ -1,8 +1,8 @@
 /**
- * uploadcare-tinymce 3.2.2
+ * uploadcare-tinymce 4.0.0
  * File Uploader by Uploadcare, a plugin providing TinyMCE users to upload media via Uploadcare Widget.
  * https://github.com/uploadcare/uploadcare-tinymce#readme
- * Date: 2019-06-17
+ * Date: 2022-08-01
  */
 
 (function () {
@@ -10,7 +10,12 @@
 
   var icon = "\n<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 80 80\">\n  <path fill=\"#FFD800\" fill-rule=\"evenodd\" d=\"M32,64 C14.326888,64 0,49.673112 0,32 C0,14.326888 14.326888,0 32,0 C49.673112,0 64,14.326888 64,32 C64,49.673112 49.673112,64 32,64 Z M32,34.7654321 C33.527306,34.7654321 34.7654321,33.527306 34.7654321,32 C34.7654321,30.472694 33.527306,29.2345679 32,29.2345679 C30.472694,29.2345679 29.2345679,30.472694 29.2345679,32 C29.2345679,33.527306 30.472694,34.7654321 32,34.7654321 Z\" transform=\"translate(8 8)\"/>\n</svg>\n";
 
-  /* global tinymce, uploadcare */
+  /**
+   * **WARNING**: DO NOT REMOVE OR RENAME THIS FILE!
+   * This file is here for compatibilty purposes.
+   * We're serving this file from gh pages in the demo,
+   * and some TinyMCE 4.x or 5.x users could use it.
+   */
 
   var uploadcareDefaultOptions = {
     integration: getIntegration(),
@@ -105,7 +110,7 @@
         author: 'Uploadcare',
         authorurl: 'https://uploadcare.com/',
         infourl: 'https://github.com/uploadcare/uploadcare-tinymce',
-        version: '3.2.2',
+        version: '4.0.0',
       }
     },
   });
@@ -114,7 +119,7 @@
 
   function getIntegration() {
     var tinymceVersion = tinymce.majorVersion + '.' + tinymce.minorVersion;
-    var pluginVerion = '3.2.2';
+    var pluginVerion = '4.0.0';
 
     return 'TinyMCE/{tinymceVersion}; Uploadcare-TinyMCE/{pluginVerion}'
       .replace('{tinymceVersion}', tinymceVersion)
