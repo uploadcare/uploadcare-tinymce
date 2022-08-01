@@ -34,9 +34,7 @@ All that without any backend code that's usually required to handle uploads.
 
 ## Requirements
 
-* TinyMCE 6.x
-* TinyMCE 5.x
-* TinyMCE 4.x
+Supported TinyMCE versions: `6.x`, `5.x` and `4.x`.
 
 ## Install
 
