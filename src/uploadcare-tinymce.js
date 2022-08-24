@@ -16,8 +16,10 @@ var uploadcareDefaultOptions = {
 
 tinymce.create('tinymce.plugins.UploadcarePlugin', {
   init: function(editor, url) {
-    tinymce.ScriptLoader.add('https://ucarecdn.com/widget/' + '$_WIDGET_VERSION' + '/uploadcare/uploadcare.full.min.js')
-    tinymce.ScriptLoader.loadQueue()
+    if(!window.uploadcare) {
+      tinymce.ScriptLoader.add('https://ucarecdn.com/widget/' + '$_WIDGET_VERSION' + '/uploadcare/uploadcare.full.min.js')
+      tinymce.ScriptLoader.loadQueue()
+    }
 
     var uploadcareOptions = Object.keys(editor.settings)
       .filter(function(settingName) {

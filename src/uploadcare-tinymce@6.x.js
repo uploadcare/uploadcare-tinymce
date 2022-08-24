@@ -8,12 +8,14 @@ var uploadcareDefaultOptions = {
 };
 
 var plugin = function(editor) {
-  tinymce.ScriptLoader.add(
-    "https://ucarecdn.com/widget/" +
-      "$_WIDGET_VERSION" +
-      "/uploadcare/uploadcare.full.min.js"
-  );
-  tinymce.ScriptLoader.loadQueue();
+  if(!window.uploadcare) {
+    tinymce.ScriptLoader.add(
+      "https://ucarecdn.com/widget/" +
+        "$_WIDGET_VERSION" +
+        "/uploadcare/uploadcare.full.min.js"
+    );
+    tinymce.ScriptLoader.loadQueue();
+  }
 
   editor.options.register('uploadcare', {
     processor: 'object',
