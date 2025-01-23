@@ -6,8 +6,10 @@
     alt="">
 </a>
 
-This is a plugin for [TinyMCE][tinymce], a WYSIWYG HTML editor,
+This is a plugin for [TinyMCE][tinymce] until version 7, a WYSIWYG HTML editor,
 providing it for working with [Uploadcare Widget][uc-feature-widget].
+
+To learn how the integration of TinyMCE version 7 with File Uploader 1.x works, see this [guide](https://uploadcare.com/docs/integrations/tinymce/).
 
 The plugin allows TinyMCE users to upload media
 from their devices, social media, cloud storage, and more.
