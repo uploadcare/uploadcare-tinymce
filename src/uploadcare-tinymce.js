@@ -60,12 +60,14 @@ tinymce.create('tinymce.plugins.UploadcarePlugin', {
             editor.selection.setNode(tinymce.activeEditor.dom.create('img', {src: fileInfo.cdnUrl}))
           }
           else if (selectedNode.nodeName === 'A') {
-            selectedNode.parentNode.replaceChild(
-              tinymce.activeEditor.dom.create('a', {href: fileInfo.cdnUrl}, fileInfo.name),
-              selectedNode
-            )
+            if (isSafeCdnUrl(fileInfo.cdnUrl)) {
+              selectedNode.parentNode.replaceChild(
+                tinymce.activeEditor.dom.create('a', {href: fileInfo.cdnUrl}, fileInfo.name),
+                selectedNode
+              )
+            }
           }
-          else {
+          else if (isSafeCdnUrl(fileInfo.cdnUrl)) {
             editor.selection.setNode(tinymce.activeEditor.dom.create('a', {href: fileInfo.cdnUrl}, fileInfo.name))
           }
         })
@@ -124,4 +126,15 @@ function detectMajorVersion() {
   var version = parseInt(tinymce.majorVersion)
 
   return version
+}
+
+function isSafeCdnUrl(url) {
+  try {
+    var parsed = new URL(url, window.location.origin)
+
+    return parsed.protocol === 'https:' && /(^|\.)ucarecdn\.com$/.test(parsed.hostname)
+  }
+  catch (e) {
+    return false
+  }
 }
